@@ -1,0 +1,149 @@
+:where([popover]) {
+  border: none;
+  outline: none;
+  background-color: color-mix(in srgb, Canvas 100%, transparent 25%);
+  border: 2px solid color-mix(in srgb, GrayText 25%, transparent 100%);
+
+
+  backdrop-filter: blur(4px);
+  @media (min-width: 48rem) {
+    backdrop-filter: blur(8px);
+  }
+}
+
+:where(.hover-popover) {
+  position: absolute;
+  margin: 0;
+  inset: 0;
+
+  opacity: 0;
+  scale: 0;
+  /* translate: 0 -1rem; */
+  transform-origin: 50% 10%;
+  transition: scale .6s var(--ease-spring-2), opacity .2s var(--ease-3);
+
+  &[data-start="left"] {
+    transform-origin: 25% 10%;
+  }
+  &[data-start="center"] {
+    transform-origin: 50% 10%;
+  }
+  &[data-start="right"] {
+    transform-origin: 75% 10%;
+  }
+
+  position-anchor: --contect-popover;
+  @supports(position-area: span-bottom center) {
+    position-area: span-bottom center;
+  }
+
+  &:popover-open {
+    opacity: 1;
+    scale: 1;
+    transition:
+      opacity 0.7s var(--ease-spring-2),
+      scale 0.7s var(--ease-spring-2);
+
+    @starting-style {
+      opacity: 0;
+      scale: 0;
+    }
+  }
+
+  @supports(transition-behavior: allow-discrete) {
+    transition:
+      opacity .2s var(--ease-in-1),
+      scale .2s var(--ease-in-1),
+      display .2s allow-discrete,
+      overlay .2s allow-discrete;
+  }
+}
+
+:where(.color-picker-container) {
+  --duration: 0.5s;
+  --glow-size: 12px;
+  --glow-opacity: 0.8;
+
+  position: fixed;
+  top: anchor(center);
+  left: anchor(center);
+  translate: -50% -50%;
+  margin: 0;
+  scale: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+  isolation: isolate;
+  overflow: visible;
+  box-shadow: none;
+
+  opacity: 1;
+  will-change: scale;
+  background-color: transparent;
+  backdrop-filter: none;
+  /* transition:
+    opacity calc(var(--duration) * 0.5) var(--ease-3),
+    scale var(--duration) var(--ease-spring-3); */
+
+  &::backdrop {
+    background-color: transparent;
+  }
+
+  &:popover-open {
+    opacity: 1;
+    scale: 1;
+    animation: color-picker-container-enter var(--duration) var(--ease-spring-1);
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity 0.3s var(--ease-5),
+      scale 0.3s var(--ease-5),
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
+  }
+}
+
+:where(.color-picker-container)::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--glow-size) * -1);
+  border-radius: inherit;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0;
+
+  background:
+    conic-gradient(
+      in oklch increasing hue,
+      oklch(from red calc(l - 0.1) c 0deg) 0deg,
+      oklch(from red calc(l - 0.1) c 180deg) 180deg,
+      oklch(from red calc(l - 0.1) c 360deg) 360deg
+    );
+
+  filter: blur(28px);
+  scale: 0.5;
+}
+
+:where(.color-picker-container):popover-open::before {
+  /* opacity: var(--glow-opacity);
+  scale: 1; */
+  animation: color-picker-glow-enter 0.3s var(--ease-2) 0.1s forwards;
+}
+
+@keyframes color-picker-container-enter {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+@keyframes color-picker-glow-enter {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: var(--glow-opacity);
+    scale: 1;
+  }
+}

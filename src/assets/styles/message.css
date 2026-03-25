@@ -1,0 +1,106 @@
+:where(.message) {
+  --duration: 1s;
+
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  margin: auto;
+  width: min(95vw, 90vh, 780px);
+  padding: 0;
+
+  border-radius: 35px;
+  @supports(corner-shape: squircle) {
+    border-radius: clamp(60px, 10vw, 100px);
+    corner-shape: squircle;
+  }
+
+  opacity: 0;
+  transform: scale(0.75) translate(0, -50vh);
+  will-change: transform;
+
+  &:popover-open {
+    opacity: 1;
+
+    transform: scale(1) translate(0, -15vh);
+    transition:
+      opacity var(--duration) var(--ease-spring-3),
+      transform var(--duration) var(--ease-spring-3);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.75) translate(0, 10vh);
+    }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity .15s ease,
+      transform .15s ease,
+      display .15s allow-discrete,
+      overlay .15s allow-discrete;
+  }
+}
+
+:where(.message) {
+  .message-container {
+    /* width: 100%; */
+    padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 3vw, 3rem);
+
+    display: grid;
+    place-content: center;
+    gap: 1.8rem;
+  }
+
+  & blockquote {
+    all: unset;
+    text-align: left;
+    color: CanvasText;
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+    font-weight: 500;
+    padding-inline-start: 0.5em;
+    padding-block-start: 2em;
+
+    &::before {
+      content: "\201F";
+      display: block;
+      font-size: 5em;
+      line-height: 0.1;
+      color: ActiveText;
+      translate: -0.1em;
+    }
+  }
+
+  .quoter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .avatar {
+      width: 50px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: clip;
+      border: 2px solid GrayText;
+
+      & img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .about-quoter {
+      .name {
+        font-size: 1rem;
+        font-weight: 500;
+        /* color: ActiveText; */
+      }
+      .position {
+        font-size: 1rem;
+        color: GrayText;
+      }
+    }
+  }
+}

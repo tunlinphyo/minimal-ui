@@ -44,12 +44,3 @@
   border: 0;
 }
 
-@keyframes AnimateOutline {
-  from { outline-offset: -4px; }
-  to { outline-offset: 0; }
-}
-
-@keyframes AnimateOutline4 {
-  from { outline-offset: -2px; }
-  to { outline-offset: 4px; }
-}

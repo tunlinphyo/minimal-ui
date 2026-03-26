@@ -63,10 +63,10 @@
 
       @starting-style {
         &::before {
-          transform: translate(0, -3px) rotate(0deg) scale(1.2, 1);
+          transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
         }
         &::after {
-          transform: translate(0, 3px) rotate(0deg) scale(1.2, 1);
+          transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
         }
       }
     }
@@ -80,10 +80,10 @@
 
     .testimonial-close {
       &::before {
-        transform: translate(0, -3px) rotate(0deg) scale(1.2, 1);
+        transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
       }
       &::after {
-        transform: translate(0, 3px) rotate(0deg) scale(1.2, 1);
+        transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
       }
     }
   }
@@ -94,7 +94,7 @@
   justify-content: center;
   align-items: center;
   background-color: Canvas;
-  background-color: ButtonFace;
+  /* background-color: ButtonFace; */
 
   position: absolute;
   z-index: 2;
@@ -109,7 +109,7 @@
     width: 1.5rem;
     height: 2px;
     background-color: CanvasText;
-    background-color: ButtonText;
+    /* background-color: ButtonText; */
     transition: transform 1s var(--ease-spring-3);
   }
 

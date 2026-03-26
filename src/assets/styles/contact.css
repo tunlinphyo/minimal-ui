@@ -12,7 +12,7 @@
     position: absolute;
     z-index: -1;
     inset: 0;
-    background-image: url(/people/me2.png);
+    background-image: url(/people/me.png);
     background-size: auto 80%;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 
 :where(.contact-card) {
   padding: clamp(1.5rem, 2vw, 2rem);
-  height: 16rem;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,7 +63,7 @@
     position: absolute;
     z-index: 1;
     inset: 50% 0 0;
-    padding: 1.25rem 1rem;
+    padding: 1.25rem clamp(1.5rem, 2vw, 2rem);
     background-image: linear-gradient(
       to bottom,
       transparent,
@@ -90,24 +90,24 @@
       text-decoration: none;
       color: LinkText;
       outline-offset: 0;
+      padding: 0.25rem;
 
-      border-radius: 10px;
+      border-radius: 12px;
       @supports(corner-shape: squircle) {
         border-radius: 40px;
         corner-shape: squircle;
       }
 
       &:is(:hover) {
-        .icon {
-          color: ActiveText;
-          animation: var(--animation-bounce);
-        }
+        background-color: ButtonFace;
+        color: ButtonText;
+        outline: 2px solid ButtonBorder;
       }
 
       &:is(:focus-visible) {
         outline: 2px solid ActiveText;
-        outline-offset: 4px;
-        animation: AnimateOutline4 .2s ease;
+        outline-offset: 2px;
+        animation: AnimateOutline2 .2s ease;
       }
     }
   }

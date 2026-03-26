@@ -7,3 +7,18 @@
   40% { transform: translateY(-3%) }
   0%, 60%, 100% { transform: translateY(0) }
 }
+
+@keyframes AnimateOutline {
+  from { outline-offset: -4px; }
+  to { outline-offset: 0; }
+}
+
+@keyframes AnimateOutline2 {
+  from { outline-offset: -2px; }
+  to { outline-offset: 2px; }
+}
+
+@keyframes AnimateOutline4 {
+  from { outline-offset: -2px; }
+  to { outline-offset: 4px; }
+}

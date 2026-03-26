@@ -80,7 +80,7 @@ html:has(.contact:popover-open) {
     align-items: center;
     position: relative;
     z-index: 5;
-    background-color: ButtonFace;
+    /* background-color: ButtonFace; */
 
     &::before,
     &::after {
@@ -89,15 +89,15 @@ html:has(.contact:popover-open) {
       width: 1.5rem;
       height: 2px;
       background-color: CanvasText;
-      background-color: ButtonText;
+      /* background-color: ButtonText; */
       transition: transform 1s var(--ease-spring-3);
     }
 
     &::before {
-      transform: translate(0, -3px) rotate(0deg) scale(1.2, 1);
+      transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
     }
     &::after {
-      transform: translate(0, 3px) rotate(0deg) scale(1.2, 1);
+      transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
     }
 
     &:is(:hover) {

@@ -1,26 +1,39 @@
 :where([popover]) {
-  border: none;
   outline: none;
-  background-color: color-mix(in srgb, Canvas 100%, transparent 25%);
-  border: 2px solid color-mix(in srgb, GrayText 25%, transparent 100%);
+  border: 2px solid color-mix(in srgb, Highlight, transparent 65%);
+  background-color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    color-mix(in srgb, Highlight, transparent 85%),
+    color-mix(in srgb, Highlight, transparent 40%)
+  );
+  background-origin: border-box;
 
-
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(10px);
   @media (min-width: 48rem) {
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(18px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    border-color: color-mix(in srgb, Highlight, transparent 85%);
+    background-image: linear-gradient(
+      to bottom,
+      color-mix(in srgb, Highlight, transparent 55%),
+      color-mix(in srgb, Highlight, transparent 90%)
+    );
   }
 }
 
-:where(.hover-popover) {
+:where(.contact) {
   position: absolute;
   margin: 0;
   inset: 0;
 
   opacity: 0;
   scale: 0;
-  /* translate: 0 -1rem; */
+  translate: 0 -1rem;
   transform-origin: 50% 10%;
-  transition: scale .6s var(--ease-spring-2), opacity .2s var(--ease-3);
+  transition: scale .6s var(--ease-spring-2), opacity .2s ease;
 
   &[data-start="left"] {
     transform-origin: 25% 10%;
@@ -30,6 +43,12 @@
   }
   &[data-start="right"] {
     transform-origin: 75% 10%;
+  }
+
+  border-radius: 35px;
+  @supports(corner-shape: squircle) {
+    border-radius: 80px;
+    corner-shape: squircle;
   }
 
   position-anchor: --contect-popover;
@@ -56,6 +75,48 @@
       scale .2s var(--ease-in-1),
       display .2s allow-discrete,
       overlay .2s allow-discrete;
+  }
+}
+
+:where(.message) {
+  --duration: 1s;
+
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+
+  border-radius: 35px;
+  @supports(corner-shape: squircle) {
+    border-radius: clamp(60px, 10vw, 100px);
+    corner-shape: squircle;
+  }
+
+  opacity: 0;
+  transform: scale(0.75) translate(0, -50vh);
+  will-change: transform;
+
+  &:popover-open {
+    opacity: 1;
+
+    transform: scale(1) translate(0, -12vh);
+    transition:
+      opacity var(--duration) var(--ease-spring-3),
+      transform var(--duration) var(--ease-spring-3);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.75) translate(0, 10vh);
+    }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity .15s ease,
+      transform .15s ease,
+      display .15s allow-discrete,
+      overlay .15s allow-discrete;
   }
 }
 

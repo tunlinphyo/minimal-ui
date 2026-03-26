@@ -1,3 +1,4 @@
 import './style.css'
 
-import './polyfills/toggle'
+import './assets/polyfills/dialog'
+import './assets/polyfills/toggle'

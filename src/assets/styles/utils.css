@@ -6,6 +6,10 @@
   height: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :where(h1,h2,h3,h4,h5,button,ul,ol,li,input,p) {
   all: unset;
 }
@@ -23,8 +27,7 @@
 
   &:is(:focus-visible) {
     outline: 2px solid ActiveText;
-    /* outline-offset: 4px; */
-    animation: AnimateOutline4 .2s var(--ease-3);
+    animation: AnimateOutline .2s ease;
   }
 }
 
@@ -41,3 +44,12 @@
   border: 0;
 }
 
+@keyframes AnimateOutline {
+  from { outline-offset: -4px; }
+  to { outline-offset: 0; }
+}
+
+@keyframes AnimateOutline4 {
+  from { outline-offset: -2px; }
+  to { outline-offset: 4px; }
+}

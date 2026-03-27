@@ -55,7 +55,7 @@ html:has(.contact:popover-open) {
       transform: translate(0, 5rem) scale(3);
       background-color: LinkText;
       opacity: 0;
-      transition: all .3s var(--ease-out-5);
+      transition: all .3s var(--ease-out-2);
 
       &:nth-child(1) {
         transform: translate(-3rem, 5rem) scale(3);

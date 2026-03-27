@@ -35,7 +35,7 @@
 
 :where(.contact-card) {
   padding: clamp(1.5rem, 2vw, 2rem);
-  height: 20rem;
+  height: 22rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,6 +49,7 @@
     text-align: center;
 
     & h2 {
+      padding-block-start: 0.5rem;
       font-size: clamp(2rem, 6vw, 2.5rem);
       color: CanvasText;
     }
@@ -68,7 +69,6 @@
       to bottom,
       transparent,
       var(--contact-surface)
-      /* color-mix(in srgb, var(--contact-surface), transparent 5%) */
     );
 
     display: flex;

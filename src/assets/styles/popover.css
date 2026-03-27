@@ -35,11 +35,11 @@
   transform-origin: 50% 10%;
   transition: scale .6s var(--ease-spring-2), opacity .2s ease;
 
-  background-image: none;
+  /* background-image: none;
   background-color: color-mix(in srgb, Highlight, transparent 85%);
   @media (prefers-color-scheme: dark) {
     background-color: color-mix(in srgb, Highlight, transparent 55%);
-  }
+  } */
 
   &[data-start="left"] {
     transform-origin: 25% 10%;

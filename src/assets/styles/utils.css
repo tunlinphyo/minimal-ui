@@ -1,6 +1,6 @@
 
 :root {
-  --padding-y: clamp(1.5rem, max(2.5vw, 3vh), 3rem);
+  --padding-y: clamp(1.5rem, max(2.5vw, 4vh), 4rem);
   --padding-x: clamp(1rem, 2vw, 2rem);
 }
 

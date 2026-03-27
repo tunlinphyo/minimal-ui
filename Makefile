@@ -4,6 +4,8 @@ BRANCH ?=
 
 deploy:
 	@set -e; \
+	$(MAKE) gitpush BRANCH="$(DEV_BRANCH)"; \
+	$(MAKE) gitmerge; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
 	if [ "$$branch" != "$(PROD_BRANCH)" ]; then \
 	  echo "❌ You are on '$$branch'. Switch to '$(PROD_BRANCH)' first."; \

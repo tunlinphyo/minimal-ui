@@ -7,15 +7,6 @@
   padding: var(--padding-y) var(--padding-x);
   overflow: hidden;
 
-  h2 {
-    position: relative;
-    font-size: clamp(2rem, 6vw, 2.5rem);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity .5s ease;
-    color: GrayText;
-  }
-
   .people-center {
     width: 3rem;
     aspect-ratio: 1;

@@ -1,4 +1,4 @@
-function togglePolyfill() {
+export function togglePolyfill() {
   const toggles = document.querySelectorAll<HTMLElement>('[toggle]')
   const triggers = document.querySelectorAll<HTMLElement>('[toogletarget]')
 

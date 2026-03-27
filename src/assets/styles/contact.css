@@ -1,22 +1,22 @@
 :where(.contact) {
-  width: 85vw;
-  max-width: 32rem;
+  width: 80vw;
+  max-width: 20rem;
   overflow: clip;
 
-  @media (orientation: portrait) {
+  /* @media (orientation: portrait) {
     max-width: 25rem;
-  }
+  } */
 
   &::before {
     content: '';
     position: absolute;
     z-index: -1;
     inset: 0;
-    background-image: url(/people/me.png);
-    background-size: auto 80%;
+    background-image: url(/people/self.png);
+    background-size: auto 75%;
     background-position: center bottom;
     background-repeat: no-repeat;
-    translate: 0 20px;
+    translate: 0 0.5rem;
   }
 
   &:popover-open {
@@ -41,9 +41,9 @@
   justify-content: space-between;
   align-items: stretch;
 
-  @media (orientation: portrait) {
+  /* @media (orientation: portrait) {
     height: 22rem;
-  }
+  } */
 
   .about {
     text-align: center;

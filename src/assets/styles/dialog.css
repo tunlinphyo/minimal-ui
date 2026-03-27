@@ -63,10 +63,10 @@
 
       @starting-style {
         &::before {
-          transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
+          transform: translate(0, -3px) rotate(0deg) scale(1.05, 1);
         }
         &::after {
-          transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
+          transform: translate(0, 3px) rotate(0deg) scale(1.05, 1);
         }
       }
     }
@@ -80,10 +80,10 @@
 
     .testimonial-close {
       &::before {
-        transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
+        transform: translate(0, -3px) rotate(0deg) scale(1.05, 1);
       }
       &::after {
-        transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
+        transform: translate(0, 3px) rotate(0deg) scale(1.05, 1);
       }
     }
   }
@@ -114,10 +114,10 @@
   }
 
   &::before {
-    transform: translate(0, -3px) rotate(0deg) scale(1.2, 1);
+    transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
   }
   &::after {
-    transform: translate(0, 3px) rotate(0deg) scale(1.2, 1);
+    transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
   }
 
   &:is(:hover) {

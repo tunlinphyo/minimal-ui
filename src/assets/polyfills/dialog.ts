@@ -1,4 +1,4 @@
-function dialogPolyfill() {
+export function dialogPolyfill() {
   const triggers = document.querySelectorAll<HTMLElement>('[dialogtarget]')
   const dialogs = document.querySelectorAll<HTMLDialogElement>('dialog')
 

@@ -52,16 +52,16 @@
 html:has(.contact:popover-open) {
   .contact-button {
     .dot {
-      transform: translate(0, 10rem) scale(6);
+      transform: translate(0, 5rem) scale(3);
       background-color: LinkText;
       opacity: 0;
-      transition: all .3s var(--ease-out-5);
+      transition: all .3s var(--ease-out-2);
 
       &:nth-child(1) {
-        transform: translate(-60px, 10rem) scale(6);
+        transform: translate(-3rem, 5rem) scale(3);
       }
       &:nth-child(3) {
-        transform: translate(60px, 10rem) scale(6);
+        transform: translate(3rem, 5rem) scale(3);
       }
     }
   }
@@ -94,10 +94,10 @@ html:has(.contact:popover-open) {
     }
 
     &::before {
-      transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
+      transform: translate(0, -3px) rotate(0deg) scale(1.05, 1);
     }
     &::after {
-      transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
+      transform: translate(0, 3px) rotate(0deg) scale(1.05, 1);
     }
 
     &:is(:hover) {

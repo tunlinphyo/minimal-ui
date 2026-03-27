@@ -65,7 +65,6 @@ gitpush-current:
 gitmerge:
 	@set -e; \
 	git checkout $(DEV_BRANCH); \
-	$(MAKE) gitpull BRANCH=$(DEV_BRANCH); \
 	git checkout $(PROD_BRANCH); \
 	git pull origin $(PROD_BRANCH); \
 	if git diff --quiet $(PROD_BRANCH)..$(DEV_BRANCH); then \

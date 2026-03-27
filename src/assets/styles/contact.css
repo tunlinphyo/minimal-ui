@@ -60,15 +60,14 @@
   }
 
   .contact-list {
-    --contact-surface: light-dark(Highlight, Canvas);
     position: absolute;
     z-index: 1;
-    inset: 50% 0 0;
+    inset: 40% 0 0;
     padding: 1.25rem clamp(1.5rem, 2vw, 2rem);
     background-image: linear-gradient(
       to bottom,
       transparent,
-      var(--contact-surface)
+      light-dark(Highlight, Canvas)
     );
 
     display: flex;

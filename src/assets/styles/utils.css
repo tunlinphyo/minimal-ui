@@ -1,4 +1,9 @@
 
+:root {
+  --padding-y: clamp(1.5rem, max(2.5vw, 3vh), 3rem);
+  --padding-x: clamp(1rem, 2vw, 2rem);
+}
+
 :where(html, body) {
   margin: 0;
   padding: 0;

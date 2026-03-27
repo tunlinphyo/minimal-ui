@@ -7,7 +7,7 @@
   overflow: hidden;
 
   .intro {
-    padding: clamp(1rem, 2vw, 2rem);
+    padding: var(--padding-x);
     display: grid;
     place-content: center;
     gap: 0.5rem;
@@ -24,8 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: clamp(1rem, 2vw, 2rem);
-  padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  padding: var(--padding-x);
+  padding-top: var(--padding-y);
 
   .contact-button {
     position: relative;
@@ -71,8 +71,8 @@ html:has(.contact:popover-open) {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: clamp(1rem, 2vw, 2rem);
-  padding-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+  padding: var(--padding-x);
+  padding-bottom: var(--padding-y);
 
   .testimonial-open {
     display: flex;

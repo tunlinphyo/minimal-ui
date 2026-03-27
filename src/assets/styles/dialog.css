@@ -99,7 +99,7 @@
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+  bottom: var(--padding-y);
   translate: -50% 0;
 
   &::before,

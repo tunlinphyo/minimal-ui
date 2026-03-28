@@ -42,10 +42,6 @@
       background-color: CanvasText;
       transition: all .3s var(--ease-out-2), background-color 0.1s ease 0.2s;
     }
-
-    &:is(:hover) {
-      outline: 2px solid GrayText;
-    }
   }
 }
 
@@ -98,10 +94,6 @@ html:has(.contact:popover-open) {
     }
     &::after {
       transform: translate(0, 3px) rotate(0deg) scale(1.05, 1);
-    }
-
-    &:is(:hover) {
-      outline: 2px solid GrayText;
     }
   }
 }

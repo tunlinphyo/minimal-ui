@@ -12,8 +12,8 @@
     place-content: center;
     gap: 0.5rem;
     padding-bottom: 6vh;
-
-    h1 {
+    
+    & h1 {
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
       line-height: 1;
     }

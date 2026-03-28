@@ -11,7 +11,7 @@
     display: grid;
     place-content: center;
     gap: 0.5rem;
-    padding-bottom: 6vh;
+    padding-bottom: 7vh;
     
     & h1 {
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);

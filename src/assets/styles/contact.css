@@ -54,10 +54,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
 
     & h2 {
-      padding-block-start: 0.1rem;
+      /* padding-block-start: 0.1rem; */
       font-size: clamp(2rem, 6vw, 2.5rem);
       color: CanvasText;
     }
@@ -65,6 +65,7 @@
     & p {
       anchor-name: --contact;
       padding: 0.1rem 0.5rem;
+      color: ButtonText;
     }
   }
 
@@ -134,15 +135,26 @@
   left: anchor(left);
   bottom: anchor(bottom);
   right: anchor(right);
-  background-color: ButtonFace;
-  outline: 2px solid color-mix(in srgb, ButtonBorder, transparent 50%);
-
-  transition: all .7s var(--ease-spring-3);
+  background-color: light-dark(Highlight, ButtonFace);
+  outline: 2px solid light-dark(Highlight, ButtonFace);
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
     border-radius: 40px;
     corner-shape: squircle;
+  }
+}
+
+:where(.contact:has(.contact-list a:hover,.contact-list a:focus-visible)) {
+  .blob {
+    background-color: ButtonFace;
+    outline-color: ButtonBorder;
+  }
+}
+
+:where(.contact:popover-open) {
+  .blob {
+    transition: all .7s var(--ease-spring-3);
   }
 }
 

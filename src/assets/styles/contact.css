@@ -73,11 +73,11 @@
     content: "";
     position: absolute;
     z-index: 0;
-    inset: 40% 0 0;
+    inset: 60% 0 0;
     background-image: linear-gradient(
       to bottom,
       transparent,
-      light-dark(Highlight, Canvas)
+      Canvas
     );
   }
 
@@ -137,6 +137,9 @@
   right: anchor(right);
   background-color: light-dark(Highlight, ButtonFace);
   outline: 2px solid light-dark(Highlight, ButtonFace);
+
+  /* background-color: Canvas;
+  outline: 2px solid Canvas; */
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {

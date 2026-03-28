@@ -29,11 +29,6 @@
   width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
-
-  &:is(:focus-visible) {
-    outline: 2px solid ActiveText;
-    animation: AnimateOutline .2s ease;
-  }
 }
 
 :where(.sr-only) {
@@ -47,5 +42,18 @@
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(.circle-button) {
+    &:is(:hover) {
+      outline: 2px solid GrayText;
+    }
+
+    &:is(:focus-visible) {
+      outline: 2px solid ActiveText;
+      animation: AnimateOutline .2s ease;
+    }
+  }
 }
 

@@ -105,7 +105,7 @@
       text-decoration: none;
       color: LinkText;
       outline-offset: 0;
-      padding: 0.25rem;
+      padding: 0.275rem;
 
       border-radius: 15px;
       @supports(corner-shape: squircle) {

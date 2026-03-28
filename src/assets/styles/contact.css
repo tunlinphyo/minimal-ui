@@ -7,29 +7,27 @@
     max-width: 25rem;
   } */
 
-  &::before {
-    content: '';
+  .tunlinphyo {
     position: absolute;
     z-index: -1;
     inset: 0;
-    background-image: url(/tunlinphyo.png);
-    background-size: auto 85%;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    translate: 0 0.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    & img {
+      display: grid;
+      width: auto;
+      height: 85%;
+      translate: 0 0.5rem;
+    }
   }
 
   &:popover-open {
-    &::before {
+    .tunlinphyo {
       animation: avatar-in 0.7s var(--ease-spring-2);
     }
-
-    /* .contact-list {
-      opacity: 1;
-      translate: 0 0;
-      scale: 1;
-      transition: all 0.3s var(--ease-out-3) 0.3s;
-    } */
   }
 }
 

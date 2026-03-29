@@ -119,7 +119,7 @@
 
 :where(.what-i-do) {
   anchor-name: --contact;
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   color: ButtonText;
 
   display: flex;
@@ -156,8 +156,10 @@
   bottom: anchor(bottom);
   right: anchor(right);
 
-  background-color: ButtonFace;
-  outline: 2px solid ButtonBorder;
+
+  background-color: Canvas;
+  background-image: linear-gradient(ButtonFace, ButtonFace);
+  border: 2px solid ButtonBorder;
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
@@ -168,10 +170,10 @@
 
 :where(.contact:popover-open) {
   .about-me {
-    transition: all .5s var(--ease-spring-1), opacity 0.1s ease;
+    transition: all .4s var(--ease-spring-1), opacity 0.1s ease;
 
     &[inert] {
-      transition: all .3s var(--ease-quad-in), opacity 0.1s ease 0.3s, padding 0.2s ease;
+      transition: all .3s var(--ease-cubic-in), opacity 0.1s ease 0.3s, padding 0.2s ease;
     }
   }
 
@@ -194,7 +196,7 @@
     z-index: 2;
   }
   .what-i-do {
-    scale: 2;
+    scale: 1.5;
   }
   .button-container {
     anchor-name: none;

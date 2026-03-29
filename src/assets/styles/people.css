@@ -62,7 +62,8 @@
     inset: -2px;
     pointer-events: none;
     border-radius: var(--radius);
-    background-color: GrayText;
+    background-color: Canvas;
+    background-image: linear-gradient(GrayText, GrayText);
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
     transition: clip-path .3s ease;
   }

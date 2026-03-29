@@ -1,5 +1,5 @@
 :where(.contact) {
-  width: 80vw;
+  width: 85vw;
   max-width: 20rem;
   overflow: clip;
 
@@ -120,14 +120,16 @@
 :where(.what-i-do) {
   anchor-name: --contact;
   padding: 0.4rem 0.8rem;
-  color: ButtonText;
+  color: CanvasText;
 
+  min-width: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
 
   transition: all .2s ease;
+  border: 2px solid color-mix(in srgb, GrayText, transparent 80%);
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
@@ -156,10 +158,9 @@
   bottom: anchor(bottom);
   right: anchor(right);
 
-
   background-color: Canvas;
-  background-image: linear-gradient(ButtonFace, ButtonFace);
-  border: 2px solid ButtonBorder;
+  /* background-image: linear-gradient(ButtonFace, ButtonFace); */
+  border: 2px solid Canvas;
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
@@ -168,12 +169,19 @@
   }
 }
 
+:where(.contact:has(.contact-list a:hover,.contact-list a:focus-visible)) {
+  .blob {
+    background-color: ButtonFace;
+    outline-color: ButtonBorder;
+  }
+}
+
 :where(.contact:popover-open) {
   .about-me {
-    transition: all .4s var(--ease-spring-1), opacity 0.1s ease;
+    transition: all .6s var(--ease-spring-2), opacity 0.1s ease;
 
     &[inert] {
-      transition: all .3s var(--ease-cubic-in), opacity 0.1s ease 0.3s, padding 0.2s ease;
+      transition: all .3s var(--ease-sine-out), opacity 0.1s ease 0.3s, padding 0.2s ease;
     }
   }
 
@@ -184,7 +192,10 @@
 
 :where(.contact:has(.about-me[inert])) {
   .about-me {
-    z-index: -2;
+    .about-close {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
   }
   .button-container {
     anchor-name: --about;
@@ -193,11 +204,12 @@
 
 :where(.contact:has(.about-me:not([inert]))) {
   .about-me {
-    z-index: 2;
+    .about-close {
+      opacity: 1;
+      transition: opacity 0.1s ease;
+    }
   }
-  .what-i-do {
-    scale: 1.5;
-  }
+  
   .button-container {
     anchor-name: none;
   }

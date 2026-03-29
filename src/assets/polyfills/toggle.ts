@@ -1,42 +1,34 @@
 export function togglePolyfill() {
-  const toggles = document.querySelectorAll<HTMLElement>('[toggle]')
   const triggers = document.querySelectorAll<HTMLElement>('[toogletarget]')
+  const lastFocusedTrigger = new WeakMap<HTMLElement, HTMLElement>()
 
-  for (const elem of toggles) {
-    syncInert(elem)
+  for (const trigger of triggers) {
+    trigger.addEventListener("click", handleClick)
   }
-
-  document.addEventListener('click', handleClick, { passive: true, capture: true })
 
   function handleClick(event: Event) {
     const elem = event.target as HTMLElement
     const trigger = elem.closest<HTMLElement>('[toogletarget]')
-    if (!trigger) return closeAll()
+    if (!trigger) return
 
     const id = trigger.getAttribute('toogletarget')
     const target = id ? (document.getElementById(id) as HTMLElement | null) : null
     if (!target) return
 
+    const isOpening = !target.hasAttribute('data-toggle')
+
     target.toggleAttribute('data-toggle')
     syncInert(target)
-  }
 
-  function closeAll() {
-    for (const elem of triggers) {
-      removeToggle(elem)
+    if (isOpening) {
+      lastFocusedTrigger.set(target, trigger)
+
+      const nestedTrigger = target.querySelector<HTMLElement>(`[toogletarget="${CSS.escape(id as string)}"]`)
+      nestedTrigger?.focus()
+      return
     }
-  }
 
-  function removeToggle(elem: HTMLElement) {
-    const id = elem.getAttribute('toogletarget')
-    const target = id ? (document.getElementById(id) as HTMLElement | null) : null
-    if (!target) return
-
-    const auto = target.getAttribute('toggle') === 'auto-close'
-    if (auto) {
-      target.removeAttribute('data-toggle')
-      syncInert(target)
-    }
+    lastFocusedTrigger.get(target)?.focus()
   }
 
   function syncInert(elem: HTMLElement) {

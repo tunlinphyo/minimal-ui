@@ -1,0 +1,99 @@
+
+:where(.about-me) {
+  --padding: clamp(1rem, 2vw, 1.2rem);
+  background-color: Canvas;
+  background-image: linear-gradient(Highlight, Highlight);
+  color: HighlightText;
+
+  padding: 0 var(--padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  overflow: clip;
+
+
+  position-anchor: --about;
+  position: absolute;
+  z-index: 2;
+  top: anchor(top);
+  left: anchor(left);
+  bottom: anchor(bottom);
+  right: anchor(right);
+
+
+  border-radius: 35px;
+  @supports(corner-shape: squircle) {
+    border-radius: 80px;
+    corner-shape: squircle;
+  }
+
+  & h3 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+
+  &[inert] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+:where(.about-close) {
+  background-color: ButtonFace;
+  margin-inline: auto 0;
+
+  position: absolute;
+  top: var(--padding);
+  right: var(--padding);
+
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1.25rem;
+    height: 2px;
+    background-color: ButtonText;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:is(:focus-visible) {
+    outline-offset: 2px;
+    animation: AnimateOutline2 .2s ease;
+  }
+}
+
+@keyframes open-about {
+  from {
+    opacity: 1;
+    clip-path: polygon(25% 22%, 75% 22%, 75% 33%, 25% 33%);
+  }
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes close-about {
+  to {
+    opacity: 0;
+    clip-path: polygon(25% 22%, 75% 22%, 75% 33%, 25% 33%);
+  }
+  75% {
+    opacity: 1;
+  }
+  from {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}

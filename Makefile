@@ -79,3 +79,6 @@ gitmerge:
 	git merge --no-ff --no-edit $(DEV_BRANCH); \
 	git push origin $(PROD_BRANCH); \
 	echo "❇️ Merged and pushed to $(PROD_BRANCH). Now ready to deploy👌👌👌."
+
+preview:
+	npm run build && npm run preview

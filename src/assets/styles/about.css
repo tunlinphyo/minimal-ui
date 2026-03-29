@@ -5,14 +5,16 @@
   background-image: linear-gradient(Highlight, Highlight);
   color: HighlightText;
 
+  /* background-color: AccentColor;
+  color: AccentColorText; */
+
   padding: 0 var(--padding);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
   gap: 1rem;
-  overflow: clip;
-
+  overflow: hidden;
 
   position-anchor: --about;
   position: absolute;
@@ -56,7 +58,7 @@
   &::after {
     content: "";
     position: absolute;
-    width: 1.25rem;
+    width: 1.5rem;
     height: 2px;
     background-color: ButtonText;
   }
@@ -70,30 +72,5 @@
   &:is(:focus-visible) {
     outline-offset: 2px;
     animation: AnimateOutline2 .2s ease;
-  }
-}
-
-@keyframes open-about {
-  from {
-    opacity: 1;
-    clip-path: polygon(25% 22%, 75% 22%, 75% 33%, 25% 33%);
-  }
-  to {
-    opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
-
-@keyframes close-about {
-  to {
-    opacity: 0;
-    clip-path: polygon(25% 22%, 75% 22%, 75% 33%, 25% 33%);
-  }
-  75% {
-    opacity: 1;
-  }
-  from {
-    opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }

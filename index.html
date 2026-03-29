@@ -69,7 +69,12 @@
       <div class="contact-card">
         <div class="about">
           <h2 id="about-me-title">Tun Lin Phyo</h2>
-          <p class="what-i-do">Frontend Engineer</p>
+          <div class="button-container">
+            <button class="what-i-do" type="button" toogletarget="aboutme" aria-controls="aboutme"
+              aria-label="Get to know more about Tun Lin Phyo">
+              Get to Know Me
+            </button>
+          </div>
         </div>
         <div class="contact-list">
           <ul>
@@ -114,6 +119,18 @@
         </div>
 
         <div class="blob"></div>
+      </div>
+
+      <div class="about-me" id="aboutme" toggle inert role="region" aria-labelledby="aboutme-title">
+        <button class="circle-button about-close" type="button" toogletarget="aboutme" aria-label="Close about me panel"></button>
+        <h3 id="aboutme-title">Hi! I’m Tun,</h3>
+        <p>
+          a frontend engineer who cares about clean UI, smooth interactions, and 
+          building web experiences that feel simple, fast, and thoughtful. 
+        </p>
+        <p>
+          I enjoy turning complex ideas into products people can actually use.
+        </p>
       </div>
     </section>
 

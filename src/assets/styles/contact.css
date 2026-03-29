@@ -3,10 +3,6 @@
   max-width: 20rem;
   overflow: clip;
 
-  /* @media (orientation: portrait) {
-    max-width: 25rem;
-  } */
-
   .tunlinphyo {
     position: absolute;
     z-index: -1;
@@ -24,6 +20,10 @@
     }
   }
 
+  .button-container {
+    anchor-name: --about;
+  }
+
   &:popover-open {
     .tunlinphyo {
       animation: avatar-in 0.7s var(--ease-spring-2);
@@ -39,9 +39,7 @@
   justify-content: space-between;
   align-items: stretch;
 
-  /* @media (orientation: portrait) {
-    height: 22rem;
-  } */
+  anchor-name: --about;
 
   .about {
     text-align: center;
@@ -55,15 +53,9 @@
     gap: 0.5rem;
 
     & h2 {
-      /* padding-block-start: 0.1rem; */
+      padding-block-start: 0.2rem;
       font-size: clamp(2rem, 6vw, 2.5rem);
       color: CanvasText;
-    }
-
-    & p {
-      anchor-name: --contact;
-      padding: 0.1rem 0.5rem;
-      color: ButtonText;
     }
   }
 
@@ -125,6 +117,36 @@
   }
 }
 
+:where(.what-i-do) {
+  anchor-name: --contact;
+  padding: 0.3rem 0.8rem;
+  color: ButtonText;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+
+  transition: all .2s ease;
+
+  border-radius: 15px;
+  @supports(corner-shape: squircle) {
+    border-radius: 40px;
+    corner-shape: squircle;
+  }
+
+  &:is(:hover) {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+  
+  &:is(:focus-visible) {
+    outline: 2px solid ActiveText;
+    outline-offset: 4px;
+    animation: AnimateOutline4 .2s ease;
+  }
+}
+
 :where(.blob) {
   position-anchor: --contact;
   position: absolute;
@@ -133,11 +155,9 @@
   left: anchor(left);
   bottom: anchor(bottom);
   right: anchor(right);
-  background-color: light-dark(Highlight, ButtonFace);
-  outline: 2px solid light-dark(Highlight, ButtonFace);
 
-  /* background-color: Canvas;
-  outline: 2px solid Canvas; */
+  background-color: ButtonFace;
+  outline: 2px solid ButtonBorder;
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
@@ -146,16 +166,38 @@
   }
 }
 
-:where(.contact:has(.contact-list a:hover,.contact-list a:focus-visible)) {
+:where(.contact:popover-open) {
+  .about-me {
+    transition: all .5s var(--ease-spring-1), opacity 0.1s ease;
+
+    &[inert] {
+      transition: all .3s var(--ease-quad-in), opacity 0.1s ease 0.3s, padding 0.2s ease;
+    }
+  }
+
   .blob {
-    background-color: ButtonFace;
-    outline-color: ButtonBorder;
+    transition: all .7s var(--ease-spring-3);
   }
 }
 
-:where(.contact:popover-open) {
-  .blob {
-    transition: all .7s var(--ease-spring-3);
+:where(.contact:has(.about-me[inert])) {
+  .about-me {
+    z-index: -2;
+  }
+  .button-container {
+    anchor-name: --about;
+  }
+}
+
+:where(.contact:has(.about-me:not([inert]))) {
+  .about-me {
+    z-index: 2;
+  }
+  .what-i-do {
+    scale: 2;
+  }
+  .button-container {
+    anchor-name: none;
   }
 }
 

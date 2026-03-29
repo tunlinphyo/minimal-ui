@@ -5,16 +5,23 @@ test('opens the contact popover and shows the contact links', async ({ page }) =
 
   const trigger = page.getByRole('button', { name: "Open Tun`s contact list" })
   const contact = page.locator('#contact')
+  const whatIDo = contact.getByRole('button', { name: 'Get to Know Me' })
 
   await expect(contact).not.toBeVisible()
 
   await trigger.click()
 
   await expect(contact).toBeVisible()
+  await expect(whatIDo).toBeFocused()
   await expect(contact.getByRole('heading', { level: 2, name: 'Tun Lin Phyo' })).toBeVisible()
   await expect(contact.getByRole('link', { name: "Visit Tun's GitHub profile" })).toBeVisible()
   await expect(contact.getByRole('link', { name: 'Connect with Tun on LinkedIn' })).toBeVisible()
   await expect(contact.getByRole('link', { name: 'Send email to Tun' })).toBeVisible()
+
+  await page.keyboard.press('Escape')
+
+  await expect(contact).not.toBeVisible()
+  await expect(trigger).toBeFocused()
 })
 
 test('loads the homepage and opens the testimonials dialog', async ({ page }) => {

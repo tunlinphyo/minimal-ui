@@ -97,3 +97,11 @@ html:has(.contact:popover-open) {
     }
   }
 }
+
+:where(html:has(.contact:popover-open):has(.contact-button:is(:focus-visible))) {
+  .contact {
+    outline: 2px solid ActiveText;
+    outline-offset: 2px;
+    animation: AnimateOutline2 .2s ease;
+  }
+}

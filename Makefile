@@ -4,6 +4,7 @@ BRANCH ?=
 
 deploy:
 	@set -e; \
+	npm test; \
 	$(MAKE) gitpush BRANCH="$(DEV_BRANCH)"; \
 	$(MAKE) gitmerge; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \

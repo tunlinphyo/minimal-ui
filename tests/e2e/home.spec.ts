@@ -5,7 +5,7 @@ test('opens the contact popover and shows the contact links', async ({ page }) =
 
   const trigger = page.getByRole('button', { name: "Open Tun`s contact list" })
   const contact = page.locator('#contact')
-  const whatIDo = contact.getByRole('button', { name: 'Get to Know Me' })
+  const whatIDo = contact.getByRole('button', { name: 'Get to know more about Tun Lin Phyo' })
 
   await expect(contact).not.toBeVisible()
 

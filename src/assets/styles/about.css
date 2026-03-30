@@ -107,8 +107,8 @@
 
     text-decoration: none;
     background-color: light-dark(
-      color-mix(in srgb, Canvas, transparent 50%),
-      color-mix(in srgb, Canvas, transparent 85%)
+      color-mix(in oklab, Canvas, transparent 50%),
+      color-mix(in oklab, Canvas, transparent 85%)
     );
     color: HighlightText;
 

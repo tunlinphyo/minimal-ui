@@ -34,7 +34,7 @@
 
 :where(.testimonials) {
   --delay: 0.5s;
-  --bg-opacity: color-mix(in srgb, Canvas, transparent 10%);
+  --bg-opacity: color-mix(in oklab, Canvas, transparent 10%);
   background-color: transparent;
 
   padding: 0;

@@ -12,7 +12,7 @@
     place-content: center;
     gap: 0.5rem;
     padding-bottom: 6vh;
-    
+
     & h1 {
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
       line-height: 1;
@@ -24,6 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  gap: 0.25rem;
   padding: var(--padding-x);
   padding-top: var(--padding-y);
 
@@ -35,7 +36,30 @@
     gap: 4px;
     anchor-name: --contect-popover;
 
+    /* border-radius: 12px;
+    @supports(corner-shape: squircle) {
+      border-radius: 30px;
+      corner-shape: squircle;
+    } */
+
+    /* &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url(/favicon.png);
+      background-size: 28px;
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      transition: all .3s var(--ease-out-2);
+
+      background-color: color-mix(in oklab, Highlight, transparent 75%);
+      outline: 2px solid color-mix(in oklab, Highlight, transparent 50%);
+      border-radius: inherit;
+      corner-shape: squircle;
+    } */
+
     .dot {
+      /* display: none; */
       width: 4px;
       aspect-ratio: 1;
       border-radius: 50%;
@@ -47,6 +71,11 @@
 
 html:has(.contact:popover-open) {
   .contact-button {
+    /* &::before {
+      transform: translate(0, 6rem) scale(3);
+      opacity: 0;
+      transition: all .3s var(--ease-out-2);
+    } */
     .dot {
       transform: translate(0, 5rem) scale(3);
       background-color: LinkText;
@@ -54,10 +83,10 @@ html:has(.contact:popover-open) {
       transition: all .3s var(--ease-out-2);
 
       &:nth-child(1) {
-        transform: translate(-3rem, 5rem) scale(3);
+        transform: translate(-2.5rem, 5rem) scale(3);
       }
       &:nth-child(3) {
-        transform: translate(3rem, 5rem) scale(3);
+        transform: translate(2.5rem, 5rem) scale(3);
       }
     }
   }
@@ -77,6 +106,7 @@ html:has(.contact:popover-open) {
     position: relative;
     z-index: 5;
     /* background-color: ButtonFace; */
+    /* outline: 2px solid color-mix(in oklab, Highlight, transparent 50%); */
 
     &::before,
     &::after {

@@ -1,12 +1,12 @@
 :where([popover]) {
   padding: 0;
   outline: none;
-  border: 2px solid color-mix(in srgb, Highlight, transparent 50%);
+  border: 2px solid color-mix(in oklab, Highlight, transparent 60%);
   background-color: transparent;
   background-image: linear-gradient(
     to bottom,
-    color-mix(in srgb, Highlight, transparent 85%),
-    color-mix(in srgb, Highlight, transparent 50%)
+    color-mix(in oklab, Highlight, transparent 85%),
+    color-mix(in oklab, Highlight, transparent 50%)
   );
   background-origin: border-box;
 
@@ -16,11 +16,11 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    border-color: color-mix(in srgb, Highlight, transparent 80%);
+    border-color: color-mix(in oklab, Highlight, transparent 80%);
     background-image: linear-gradient(
       to bottom,
-      color-mix(in srgb, Highlight, transparent 55%),
-      color-mix(in srgb, Highlight, transparent 90%)
+      color-mix(in oklab, Highlight, transparent 55%),
+      color-mix(in oklab, Highlight, transparent 90%)
     );
   }
 }
@@ -37,9 +37,9 @@
   transition: scale .6s var(--ease-spring-2), opacity .2s ease;
 
   /* background-image: none;
-  background-color: color-mix(in srgb, Highlight, transparent 85%);
+  background-color: color-mix(in oklab, Highlight, transparent 85%);
   @media (prefers-color-scheme: dark) {
-    background-color: color-mix(in srgb, Highlight, transparent 55%);
+    background-color: color-mix(in oklab, Highlight, transparent 55%);
   } */
 
   &[data-start="left"] {

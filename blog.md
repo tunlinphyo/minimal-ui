@@ -37,11 +37,11 @@ I also use CSS color functions to soften surfaces while still staying inside the
 
 ```css
 :where([popover]) {
-  border: 2px solid color-mix(in srgb, Highlight, transparent 50%);
+  border: 2px solid color-mix(in oklab, Highlight, transparent 50%);
   background-image: linear-gradient(
     to bottom,
-    color-mix(in srgb, Highlight, transparent 85%),
-    color-mix(in srgb, Highlight, transparent 50%)
+    color-mix(in oklab, Highlight, transparent 85%),
+    color-mix(in oklab, Highlight, transparent 50%)
   );
 }
 ```

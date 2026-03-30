@@ -101,7 +101,7 @@
   }
 
   opacity: 0;
-  transform: scale(0.75) translate(0, -50vh);
+  transform: scale(0.5) translate(0, -50vh);
   will-change: transform;
 
   &:popover-open {
@@ -114,15 +114,15 @@
 
     @starting-style {
       opacity: 0;
-      transform: scale(0.75) translate(0, 10vh);
+      transform: scale(0.5) translate(0, 10vh);
     }
   }
 
   @supports (animation-name: test-starting-style) {
     transition:
-      opacity .15s ease,
-      transform .15s ease,
-      display .15s allow-discrete,
-      overlay .15s allow-discrete;
+      opacity .2s ease,
+      transform .2s ease,
+      display .2s allow-discrete,
+      overlay .2s allow-discrete;
   }
 }

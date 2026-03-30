@@ -1,21 +1,11 @@
 
 :where(.about-me) {
-  --padding: clamp(1rem, 2vw, 1.2rem);
+  --padding: clamp(1rem, 2vw, 1.25rem);
   background-color: Canvas;
   background-image: linear-gradient(Highlight, Highlight);
   color: HighlightText;
 
-  /* background-color: light-dark(Canvas, CanvasText);
-  color: light-dark(CanvasText, Canvas); */
-
-  /* background-color: AccentColor;
-  color: AccentColorText; */
-
   padding: 0 var(--padding);
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch; */
   gap: 1rem;
   overflow: clip;
 
@@ -35,14 +25,27 @@
   }
 
   & h3 {
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
     font-size: clamp(2rem, 6vw, 2.5rem);
   }
 
   & p {
-    --vw: calc(85vw - 2rem);
-    max-width: min(18rem, var(--vw));
+    width: calc(var(--width) - (var(--padding) * 2));
     margin-top: 0.75rem;
+    text-wrap: pretty;
+    /* -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    text-align: justify; */
+  }
+
+  @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+    p:first-of-type::first-letter {
+      initial-letter: 2;
+      -webkit-initial-letter: 2;
+      margin-right: 0.25rem;
+      color: ActiveText;
+    }
   }
 
   &[inert] {
@@ -81,5 +84,49 @@
   &:is(:focus-visible) {
     outline-offset: 2px;
     animation: AnimateOutline2 .2s ease;
+  }
+}
+
+:where(.recent-projects) {
+  width: calc(var(--width) - (var(--padding) * 2));
+  padding: 0;
+  margin-block-start: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 100vh;
+    border: 2px solid transparent;
+
+    text-decoration: none;
+    background-color: light-dark(
+      color-mix(in srgb, Canvas, transparent 50%),
+      color-mix(in srgb, Canvas, transparent 85%)
+    );
+    color: HighlightText;
+
+    &:is(:hover,:focus-visible) {
+      color: LinkText;
+      background-color: Canvas;
+    }
+
+    &:is(:focus-visible) {
+      outline: 2px solid ActiveText;
+      outline-offset: 2px;
+      animation: AnimateOutline2 .2s ease;
+    }
+  }
+}
+
+:where(.about-me:not([inert])) {
+  a:is(:hover,:focus-visible) {
+    transition: all .6s var(--ease-spring-2);
   }
 }

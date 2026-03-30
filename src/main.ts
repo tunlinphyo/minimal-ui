@@ -6,7 +6,7 @@ import './assets/polyfills/toggle'
 export function setupContactFocus() {
   const contact = document.querySelector<HTMLElement>('#contact')
   const aboutMe = document.querySelector<HTMLElement>('.about-me')
-  const whatIDo = document.querySelector<HTMLElement>('.what-i-do')
+  const whatIDo = document.querySelector<HTMLElement>('.open-about-me')
   const contactTrigger = document.querySelector<HTMLElement>('[popovertarget="contact"]')
 
   contact?.addEventListener('beforetoggle', ({ newState }) => {

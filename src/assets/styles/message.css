@@ -1,9 +1,12 @@
 :where(.message) {
-  width: min(95vw, 90vh, 50rem);
-  max-width: 46rem;
+  width: min(95vw, 90vh, 46rem);
 
   @media (orientation: portrait) {
     max-width: 38rem;
+  }
+
+  @media (min-width: 38rem) {
+    max-width: 75vw;
   }
 
   .message-container {
@@ -19,9 +22,9 @@
     text-align: left;
     color: CanvasText;
     font-size: clamp(1.2rem, max(2.6vw, 2.8vh), 1.8rem);
-    /* font-weight: 500; */
     padding-inline-start: 0.5em;
     padding-block-start: 2em;
+    /* text-wrap: pretty; */
 
     &::before {
       content: "\201F";

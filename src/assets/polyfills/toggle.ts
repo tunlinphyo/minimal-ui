@@ -32,7 +32,36 @@ export function togglePolyfill() {
   }
 
   function syncInert(elem: HTMLElement) {
-    elem.toggleAttribute('inert', !elem.hasAttribute('data-toggle'))
+    const isActive = elem.hasAttribute('data-toggle')
+    elem.toggleAttribute('inert', !isActive)
+
+    const id = elem.id
+    if (!id) return
+
+    const linkedElements = document.querySelectorAll<HTMLElement>(`[data-inert="${CSS.escape(id)}"]`)
+    for (const linkedElement of linkedElements) {
+      linkedElement.toggleAttribute('inert', isActive)
+    }
+  }
+}
+
+declare global {
+  interface Window {
+    resetToggleInert: (id: string) => void
+  }
+}
+
+window.resetToggleInert = (id: string) => {
+  const target = id ? (document.getElementById(id) as HTMLElement | null) : null
+  if (!target) return
+  if (target.hasAttribute('inert')) return
+
+  target.removeAttribute('data-toggle')
+  target.setAttribute('inert', '')
+
+  const linkedElements = document.querySelectorAll<HTMLElement>(`[data-inert="${CSS.escape(id)}"]`)
+  for (const linkedElement of linkedElements) {
+    linkedElement.removeAttribute('inert')
   }
 }
 

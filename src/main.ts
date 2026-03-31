@@ -5,7 +5,6 @@ import './assets/polyfills/toggle'
 
 export function setupContactFocus() {
   const contact = document.querySelector<HTMLElement>('#contact')
-  const aboutMe = document.querySelector<HTMLElement>('.about-me')
   const whatIDo = document.querySelector<HTMLElement>('.open-about-me')
   const contactTrigger = document.querySelector<HTMLElement>('[popovertarget="contact"]')
 
@@ -18,9 +17,8 @@ export function setupContactFocus() {
       }
     })
 
-    if (newState === 'closed' && aboutMe && !aboutMe.hasAttribute('inert')) {
-      aboutMe.removeAttribute('data-toggle')
-      aboutMe.setAttribute('inert', '')
+    if (newState === 'closed') {
+      window.resetToggleInert('aboutme')
     }
   })
 }

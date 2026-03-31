@@ -17,6 +17,11 @@
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
       line-height: 1;
     }
+
+    :where(h1, p) {
+      position: relative;
+      z-index: 1;
+    }
   }
 }
 

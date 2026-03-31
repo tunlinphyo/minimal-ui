@@ -8,20 +8,19 @@ describe('contact popover focus management', () => {
       <section id="contact">
         <button type="button" class="open-about-me">Get to Know Me</button>
       </section>
-      <div class="about-me" data-toggle></div>
     `
 
     vi.spyOn(window, 'requestAnimationFrame').mockImplementation((callback: FrameRequestCallback) => {
       callback(0)
       return 1
     })
+    window.resetToggleInert = vi.fn()
 
     setupContactFocus()
 
     const contact = document.querySelector<HTMLElement>('#contact')
     const whatIDo = document.querySelector<HTMLElement>('.open-about-me')
     const contactTrigger = document.querySelector<HTMLElement>('[popovertarget="contact"]')
-    const aboutMe = document.querySelector<HTMLElement>('.about-me')
 
     const openEvent = new Event('beforetoggle') as Event & { newState: string }
     openEvent.newState = 'open'
@@ -34,7 +33,6 @@ describe('contact popover focus management', () => {
     contact?.dispatchEvent(closeEvent)
 
     expect(document.activeElement).toBe(contactTrigger)
-    expect(aboutMe?.hasAttribute('data-toggle')).toBe(false)
-    expect(aboutMe?.hasAttribute('inert')).toBe(true)
+    expect(window.resetToggleInert).toHaveBeenCalledWith('aboutme')
   })
 })

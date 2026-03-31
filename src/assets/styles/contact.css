@@ -176,6 +176,12 @@
   }
 }
 
+/* :where(.contact-list:has(a:hover),.contact-list:has(a:focus-visible)) {
+  & a:not(:hover):not(:focus-visible) {
+    color: Canvas;
+  }
+} */
+
 :where(.contact:popover-open) {
   .about-me {
     transition: all .6s var(--ease-spring-2), opacity 0.1s ease;

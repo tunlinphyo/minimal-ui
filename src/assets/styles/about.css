@@ -1,9 +1,10 @@
 
 :where(.about-me) {
   --padding: clamp(1rem, 2vw, 1.25rem);
+  --highlight-text: oklch(from HighlightText calc(l - (1 * max(0, sign(0.5 - l)))) c h);
   background-color: Canvas;
   background-image: linear-gradient(Highlight, Highlight);
-  color: HighlightText;
+  color: var(--highlight-text);
 
   padding: 0 var(--padding);
   gap: 1rem;
@@ -110,7 +111,7 @@
       color-mix(in srgb, Canvas, transparent 50%),
       color-mix(in srgb, Canvas, transparent 85%)
     );
-    color: HighlightText;
+    color: var(--highlight-text);
 
     &:is(:hover,:focus-visible) {
       color: LinkText;

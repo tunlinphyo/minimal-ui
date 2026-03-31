@@ -70,6 +70,10 @@
 
   &:is(:hover) {
     scale: 1.1;
+
+    &::before {
+      scale: 1.5;
+    }
   }
   &:is(:focus-visible) {
     outline: 2px solid ActiveText;
@@ -80,6 +84,7 @@
   &:hover::before {
     scale: 1.5;
   }
+
   &:is(:hover,:focus-visible) {
     &::after {
       clip-path: polygon(0 85%, 100% 55%, 100% 100%, 0 100%);
@@ -107,13 +112,21 @@
   }
 }
 
+/* :where(.people:has(:hover)) {
+  .person:not(:hover) {
+    &::after {
+      clip-path: polygon(0 30%, 100% 0%, 100% 100%, 0 100%);
+    }
+  }
+} */
+
 
 :where(dialog.testimonials) {
   &[open] {
     .people {
       .person {
         offset-distance: var(--distance);
-        transition: all 1s var(--ease-spring-3);
+        transition: all 1s var(--ease-spring-3), opacity .2s ease;
 
         @starting-style {
           offset-distance: 40%;

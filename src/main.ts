@@ -14,12 +14,9 @@ export function setupContactFocus() {
         whatIDo?.focus()
       } else {
         contactTrigger?.focus()
+        window.resetToggleInert('aboutme')
       }
     })
-
-    if (newState === 'closed') {
-      window.resetToggleInert('aboutme')
-    }
   })
 }
 

@@ -38,7 +38,7 @@ export function togglePolyfill() {
     const id = elem.id
     if (!id) return
 
-    const linkedElements = document.querySelectorAll<HTMLElement>(`[data-inert="${CSS.escape(id)}"]`)
+    const linkedElements = document.querySelectorAll<HTMLElement>(`[data-inert-${CSS.escape(id)}`)
     for (const linkedElement of linkedElements) {
       linkedElement.toggleAttribute('inert', isActive)
     }
@@ -59,7 +59,7 @@ window.resetToggleInert = (id: string) => {
   target.removeAttribute('data-toggle')
   target.setAttribute('inert', '')
 
-  const linkedElements = document.querySelectorAll<HTMLElement>(`[data-inert="${CSS.escape(id)}"]`)
+  const linkedElements = document.querySelectorAll<HTMLElement>(`[data-inert-${CSS.escape(id)}`)
   for (const linkedElement of linkedElements) {
     linkedElement.removeAttribute('inert')
   }

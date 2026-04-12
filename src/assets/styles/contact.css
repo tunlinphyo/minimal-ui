@@ -184,7 +184,7 @@
 
 :where(.contact:popover-open) {
   .about-me {
-    transition: all .6s var(--ease-spring-2), opacity 0.1s ease;
+    transition: all .3s var(--ease-sine-out), opacity 0.1s ease;
 
     &[inert] {
       transition: all .3s var(--ease-sine-out), opacity 0.1s ease 0.3s, padding 0.2s ease;

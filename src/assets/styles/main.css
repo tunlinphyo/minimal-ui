@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: var(--padding-x);
-  padding-top: var(--padding-y);
+  padding-top: clamp(1.5rem, max(4vw, 4vh), 5rem);
 
   .contact-button {
     position: relative;
@@ -39,19 +39,40 @@
     align-items: center;
     gap: 4px;
     anchor-name: --contect-popover;
+    padding-inline: 0.2rem;
 
-    .dot {
-      width: 4px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background-color: CanvasText;
-      transition: all .3s var(--ease-out-2), background-color 0.1s ease 0.2s;
+    /* outline: 1px solid hotpink; */
+
+    & span {
+      display: block;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
+      color: oklch(from CanvasText l c h / 0.6);
+      color: CanvasText;
+      transition: all .3s var(--ease-out-2);
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(.contact-button) {
+    &:is(:hover) {
+      outline: 2px solid GrayText;
+    }
+
+    &:is(:focus-visible) {
+      outline: 2px solid ActiveText;
+      animation: AnimateOutline .2s ease;
     }
   }
 }
 
 html:has(.contact:popover-open) {
   .contact-button {
+    & span {
+      transform: translate(0, 2rem) scale(2);
+      opacity: 0;
+    }
     .dot {
       transform: translate(0, 5rem) scale(3);
       background-color: LinkText;

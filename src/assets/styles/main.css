@@ -11,7 +11,8 @@
     display: grid;
     place-content: center;
     gap: 0.5rem;
-    padding-bottom: 6vh;
+    padding-bottom: 5vh;
+    /* transition: color 0.5s var(--ease-sine-in); */
 
     & h1 {
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
@@ -27,10 +28,10 @@
 
 :where(header) {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: var(--padding-x);
-  padding-top: clamp(1.5rem, max(4vw, 4vh), 5rem);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding-y) var(--padding-x);
 
   .contact-button {
     position: relative;
@@ -45,13 +46,19 @@
 
     & span {
       display: block;
-      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
       clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
-      color: oklch(from CanvasText l c h / 0.6);
-      color: CanvasText;
+      color: oklch(from CanvasText l c h / 0.8);
+      /* color: CanvasText; */
       transition: all .3s var(--ease-out-2);
     }
   }
+
+  /* #toggle {
+    position: fixed;
+    top: var(--padding-y);
+    right: var(--padding-y);
+  } */
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -61,7 +68,21 @@
     }
 
     &:is(:focus-visible) {
-      outline: 2px solid ActiveText;
+      outline: 2px solid light-dark(hotpink, skyblue);
+      animation: AnimateOutline .2s ease;
+    }
+  }
+
+  :where(.sunmoon) {
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:is(:focus-visible) {
+      outline: 2px solid light-dark(hotpink, skyblue);
       animation: AnimateOutline .2s ease;
     }
   }
@@ -126,7 +147,7 @@ html:has(.contact:popover-open) {
 
 :where(html:has(.contact:popover-open):has(.contact-button:is(:focus-visible))) {
   .contact {
-    outline: 2px solid ActiveText;
+    outline: 2px solid light-dark(hotpink, skyblue);
     outline-offset: 2px;
     animation: AnimateOutline2 .2s ease;
   }

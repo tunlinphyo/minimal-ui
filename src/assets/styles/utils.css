@@ -1,7 +1,9 @@
 
 :root {
-  --padding-y: clamp(1.5rem, max(3vw, 3vh), 5rem);
+  --padding-y: clamp(2rem, max(4vw, 4vh), 2.5rem);
   --padding-x: clamp(1rem, 2vw, 2rem);
+
+  --sunmoon-pos: calc(var(--padding-y) + 1rem);
 }
 
 :where(html, body) {
@@ -57,6 +59,35 @@
   border: 0;
 }
 
+:where(body) {
+  &[theme=light] {
+    background-color: white;
+  }
+  &[theme=dark] {
+    background-color: black;
+  }
+}
+
+:where(sun-moon) {
+  filter: drop-shadow(0 0 0.75rem hotpink);
+
+  &[theme=dark] {
+    filter: drop-shadow(0 0 0.75rem skyblue);
+  }
+}
+
+:where(body[togelling]) {
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: Canvas;
+    /* clip-path: circle(0% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos)); */
+    clip-path: circle(5% at 50% 33%);
+    animation: theme-changing 0.5s var(--ease-sine-in);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   :where(.circle-button) {
     &:is(:hover) {
@@ -64,9 +95,15 @@
     }
 
     &:is(:focus-visible) {
-      outline: 2px solid ActiveText;
+      outline: 2px solid light-dark(hotpink, skyblue);
       animation: AnimateOutline .2s ease;
     }
   }
 }
 
+@keyframes theme-changing {
+  to {
+    /* clip-path: circle(150% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos)); */
+    clip-path: circle(100% at 50% 33%);
+  }
+}

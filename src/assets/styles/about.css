@@ -2,8 +2,9 @@
 :where(.about-me) {
   --padding: clamp(1rem, 2vw, 1.25rem);
   --highlight-text: oklch(from HighlightText calc(l - (1 * max(0, sign(0.5 - l)))) c h);
-  background-color: Canvas;
-  background-image: linear-gradient(Highlight, Highlight);
+  /* background-color: Canvas;
+  background-image: linear-gradient(Highlight, Highlight); */
+  background-color: oklch(from Highlight l c h / 1);
   color: var(--highlight-text);
 
   padding: 0 var(--padding);
@@ -45,7 +46,7 @@
       initial-letter: 2;
       -webkit-initial-letter: 2;
       margin-right: 0.25rem;
-      color: ActiveText;
+      color: light-dark(hotpink, skyblue);
     }
   }
 
@@ -119,7 +120,7 @@
     }
 
     &:is(:focus-visible) {
-      outline: 2px solid ActiveText;
+      outline: 2px solid light-dark(hotpink, skyblue);
       outline-offset: 2px;
       animation: AnimateOutline2 .2s ease;
     }

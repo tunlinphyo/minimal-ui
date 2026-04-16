@@ -101,6 +101,7 @@
   z-index: 2;
   left: 50%;
   bottom: var(--padding-y);
+  bottom: var(--padding-y);
   translate: -50% 0;
 
   &::before,

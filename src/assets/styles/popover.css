@@ -2,27 +2,13 @@
   padding: 0;
   outline: none;
   border: 2px solid oklch(from Highlight l c h / 0.2);
-  background-color: transparent;
+  background-color: Canvas;
   background-image: linear-gradient(
     to bottom,
-    oklch(from Highlight l c h / 0.85),
-    oklch(from Highlight l c h / 0.2)
+    oklch(from Highlight l c h / 0.5),
+    transparent
   );
   background-origin: border-box;
-
-  backdrop-filter: blur(10px);
-  @media (min-width: 48rem) {
-    backdrop-filter: blur(18px);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    border-color: color-mix(in srgb, Highlight, transparent 80%);
-    background-image: linear-gradient(
-      to bottom,
-      oklch(from Highlight l c h / 0.1),
-      oklch(from Highlight l c h / 0.99)
-    );
-  }
 }
 
 :where(.contact) {
@@ -35,12 +21,6 @@
   translate: 0 -1rem;
   transform-origin: 50% 10%;
   transition: scale .6s var(--ease-spring-2), opacity .2s ease;
-
-  /* background-image: none;
-  background-color: color-mix(in srgb, Highlight, transparent 85%);
-  @media (prefers-color-scheme: dark) {
-    background-color: color-mix(in srgb, Highlight, transparent 55%);
-  } */
 
   &[data-start="left"] {
     transform-origin: 25% 10%;

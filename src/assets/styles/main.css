@@ -46,7 +46,7 @@
 
     & span {
       display: block;
-      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-size: clamp(1.4rem, 4vw, 1.6rem);
       clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
       color: oklch(from CanvasText l c h / 0.8);
       /* color: CanvasText; */

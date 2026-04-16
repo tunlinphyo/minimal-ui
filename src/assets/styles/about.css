@@ -46,7 +46,7 @@
       initial-letter: 2;
       -webkit-initial-letter: 2;
       margin-right: 0.25rem;
-      color: light-dark(hotpink, skyblue);
+      color: ActiveText;
     }
   }
 

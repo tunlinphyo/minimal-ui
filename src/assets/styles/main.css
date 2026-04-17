@@ -11,7 +11,7 @@
     display: grid;
     place-content: center;
     gap: 0.5rem;
-    padding-bottom: 5vh;
+    padding-bottom: 4vh;
     /* transition: color 0.5s var(--ease-sine-in); */
 
     & h1 {
@@ -46,9 +46,9 @@
 
     & span {
       display: block;
-      font-size: clamp(1.4rem, 4vw, 1.6rem);
+      font-size: clamp(1.4rem, 4vw, 1.65rem);
       clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
-      color: oklch(from CanvasText l c h / 0.85);
+      color: oklch(from CanvasText l c h / 0.8);
       /* color: CanvasText; */
       transition: all .3s var(--ease-out-2);
     }
@@ -84,6 +84,7 @@
 :where(body:has(sun-moon[theme=dark])) {
   .sunmoon::before {
     opacity: 0.2;
+    translate: -0.2rem 0.2rem;
   }
 }
 

@@ -45,7 +45,7 @@
     transition: opacity var(--delay) ease;
     background-image:
       radial-gradient(transparent 1px, Canvas 1px),
-      radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 25%, Canvas 100%)
+      radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, Canvas 100%)
     ;
     background-size: 3px 3px, auto auto;
   }

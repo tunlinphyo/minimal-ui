@@ -67,7 +67,7 @@
     background-image: linear-gradient(
       to bottom,
       transparent,
-      oklch(from Canvas l c h / 0.85)
+      Canvas
     );
   }
 

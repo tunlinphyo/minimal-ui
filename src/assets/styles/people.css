@@ -31,7 +31,7 @@
   offset-rotate: 0deg;
   offset-distance: 40%;
   offset-anchor: auto;
-  border: 2px solid GrayText;
+  border: 2px solid var(--accent-color);
 
   & img {
     width: 100%;
@@ -62,8 +62,9 @@
     inset: -2px;
     pointer-events: none;
     border-radius: var(--radius);
-    background-color: Canvas;
-    background-image: linear-gradient(GrayText, GrayText);
+    /* background-color: Canvas;
+    background-image: linear-gradient(GrayText, GrayText); */
+    background-color: var(--accent-color);
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
     transition: clip-path .3s ease;
   }

@@ -43,8 +43,8 @@
       initial-letter: 2;
       -webkit-initial-letter: 2;
       margin-right: 0.25rem;
-      /* color: var(--accent-color); */
-      color: ActiveText;
+      color: var(--accent-color);
+      /* color: ActiveText; */
     }
   }
 

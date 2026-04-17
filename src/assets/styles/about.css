@@ -1,7 +1,12 @@
 
 :where(.about-me) {
   --padding: clamp(1rem, 2vw, 1.25rem);
-  background-color: var(--popover-bg);
+  --button-bg: light-dark(
+    color-mix(in srgb, Canvas, transparent 55%),
+    Canvas
+  );
+  background-color: var(--about-bg);
+  backdrop-filter: blur(10px);
   color: CanvasText;
 
   padding: 0 var(--padding);
@@ -31,10 +36,6 @@
     width: calc(var(--width) - (var(--padding) * 2));
     margin-top: 0.75rem;
     text-wrap: pretty;
-    /* -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    text-align: justify; */
   }
 
   @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
@@ -42,6 +43,7 @@
       initial-letter: 2;
       -webkit-initial-letter: 2;
       margin-right: 0.25rem;
+      /* color: var(--accent-color); */
       color: ActiveText;
     }
   }
@@ -104,12 +106,12 @@
     border: 2px solid transparent;
 
     text-decoration: none;
-    background-color: color-mix(in srgb, Canvas, transparent 50%);
+    background-color: var(--button-bg);
     color: CanvasText;
 
     &:is(:hover,:focus-visible) {
-      color: LinkText;
       background-color: Canvas;
+      color: LinkText;
     }
 
     &:is(:focus-visible) {

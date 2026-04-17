@@ -48,17 +48,43 @@
       display: block;
       font-size: clamp(1.4rem, 4vw, 1.6rem);
       clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
-      color: oklch(from CanvasText l c h / 0.8);
+      color: oklch(from CanvasText l c h / 0.85);
       /* color: CanvasText; */
       transition: all .3s var(--ease-out-2);
     }
   }
 
-  /* #toggle {
-    position: fixed;
-    top: var(--padding-y);
-    right: var(--padding-y);
-  } */
+  .sunmoon {
+    width: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      inset: -0.6rem;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(10px);
+    }
+
+    :where(sun-moon) {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+:where(body:has(sun-moon[theme=dark])) {
+  .sunmoon::before {
+    opacity: 0.2;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -74,13 +100,6 @@
   }
 
   :where(.sunmoon) {
-    width: 3rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     &:is(:focus-visible) {
       outline: 2px solid var(--accent-color);
       animation: AnimateOutline .2s ease;

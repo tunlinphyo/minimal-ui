@@ -2,12 +2,8 @@
   padding: 0;
   outline: none;
   border: 2px solid oklch(from Highlight l c h / 0.2);
-  background-color: Canvas;
-  background-image: linear-gradient(
-    to bottom,
-    oklch(from Highlight l c h / 0.5),
-    transparent
-  );
+  /* background-color: Canvas; */
+  background-image: linear-gradient(to bottom, var(--popover-bg), Canvas);
   background-origin: border-box;
 }
 

@@ -39,7 +39,7 @@ export function themeToggle() {
     return colorScheme.matches ? 'dark' : 'light'
   }
 
-  const syncSunMoonTheme = () => {
+  function syncSunMoonTheme() {
     const theme = getTheme()
     sunMoon.theme = theme
     document.body.setAttribute('togelling', '')
@@ -54,8 +54,13 @@ export function themeToggle() {
     root.style.colorScheme = nextTheme
   }
 
+  const updateThemeBySchama = () => {
+    const nextTheme = colorScheme.matches ? 'dark' : 'light'
+    root.style.colorScheme = nextTheme
+  }
+
   syncSunMoonTheme()
-  colorScheme.addEventListener('change', syncSunMoonTheme)
+  colorScheme.addEventListener('change', updateThemeBySchama)
   toggleButton.addEventListener('click', toggleTheme)
 
   new MutationObserver(syncSunMoonTheme).observe(root, {

@@ -3,7 +3,12 @@
   --padding-y: clamp(2rem, max(4vw, 4vh), 2.5rem);
   --padding-x: clamp(1rem, 2vw, 2rem);
 
+  --accent-color: light-dark(hotpink, skyblue);
   --sunmoon-pos: calc(var(--padding-y) + 1rem);
+  --popover-bg: light-dark(
+    oklch(from Highlight 0.78 c h / 1),
+    oklch(from Highlight 0.34 c h / 1)
+  );
 }
 
 :where(html, body) {
@@ -95,7 +100,7 @@
     }
 
     &:is(:focus-visible) {
-      outline: 2px solid light-dark(hotpink, skyblue);
+      outline: 2px solid var(--accent-color);
       animation: AnimateOutline .2s ease;
     }
   }

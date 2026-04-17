@@ -68,7 +68,7 @@
     }
 
     &:is(:focus-visible) {
-      outline: 2px solid light-dark(hotpink, skyblue);
+      outline: 2px solid var(--accent-color);
       animation: AnimateOutline .2s ease;
     }
   }
@@ -82,7 +82,7 @@
     align-items: center;
 
     &:is(:focus-visible) {
-      outline: 2px solid light-dark(hotpink, skyblue);
+      outline: 2px solid var(--accent-color);
       animation: AnimateOutline .2s ease;
     }
   }
@@ -147,7 +147,7 @@ html:has(.contact:popover-open) {
 
 :where(html:has(.contact:popover-open):has(.contact-button:is(:focus-visible))) {
   .contact {
-    outline: 2px solid light-dark(hotpink, skyblue);
+    outline: 2px solid var(--accent-color);
     outline-offset: 2px;
     animation: AnimateOutline2 .2s ease;
   }

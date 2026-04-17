@@ -1,11 +1,8 @@
 
 :where(.about-me) {
   --padding: clamp(1rem, 2vw, 1.25rem);
-  --highlight-text: oklch(from HighlightText calc(l - (1 * max(0, sign(0.5 - l)))) c h);
-  /* background-color: Canvas;
-  background-image: linear-gradient(Highlight, Highlight); */
-  background-color: oklch(from Highlight l c h / 1);
-  color: var(--highlight-text);
+  background-color: var(--popover-bg);
+  color: CanvasText;
 
   padding: 0 var(--padding);
   gap: 1rem;
@@ -18,7 +15,6 @@
   left: anchor(left);
   bottom: anchor(bottom);
   right: anchor(right);
-
 
   border-radius: 34px;
   @supports(corner-shape: squircle) {
@@ -108,11 +104,8 @@
     border: 2px solid transparent;
 
     text-decoration: none;
-    background-color: light-dark(
-      color-mix(in srgb, Canvas, transparent 50%),
-      color-mix(in srgb, Canvas, transparent 85%)
-    );
-    color: var(--highlight-text);
+    background-color: color-mix(in srgb, Canvas, transparent 50%);
+    color: CanvasText;
 
     &:is(:hover,:focus-visible) {
       color: LinkText;
@@ -120,7 +113,7 @@
     }
 
     &:is(:focus-visible) {
-      outline: 2px solid light-dark(hotpink, skyblue);
+      outline: 2px solid var(--accent-color);
       outline-offset: 2px;
       animation: AnimateOutline2 .2s ease;
     }

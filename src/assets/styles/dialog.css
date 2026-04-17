@@ -43,7 +43,11 @@
     opacity: 0;
     background-color: transparent;
     transition: opacity var(--delay) ease;
-    background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 30%, Canvas 100%);
+    background-image:
+      radial-gradient(transparent 1px, Canvas 1px),
+      radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 25%, Canvas 100%)
+    ;
+    background-size: 3px 3px, auto auto;
   }
 
   &[open] {

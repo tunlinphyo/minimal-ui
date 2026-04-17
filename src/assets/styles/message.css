@@ -32,7 +32,7 @@
       font-size: 5em;
       font-weight: 400;
       line-height: 0.1;
-      color: light-dark(hotpink, skyblue);
+      color: var(--accent-color);
       translate: -0.1em;
     }
   }
@@ -63,11 +63,11 @@
         font-size: 1rem;
         /* font-weight: 500; */
         color: CanvasText;
-        /* color: light-dark(hotpink, skyblue); */
+        /* color: var(--accent-color); */
       }
       .position {
         font-size: 1rem;
-        color: GrayText;
+        color: color-mix(in oklab, CanvasText, Canvas 35%);
       }
     }
   }

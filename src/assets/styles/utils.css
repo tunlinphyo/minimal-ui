@@ -18,6 +18,9 @@
 :where(h1,h2,h3,h4,h5,p) {
   display: block;
 }
+:where(button, a, input, label, select, textarea, summary, [role="button"]) {
+  -webkit-tap-highlight-color: transparent;
+}
 
 :where(.circle-button) {
   width: 3rem;

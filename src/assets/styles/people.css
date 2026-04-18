@@ -127,7 +127,7 @@
     .people {
       .person {
         offset-distance: var(--distance);
-        transition: all 1s var(--ease-spring-3), opacity .2s ease;
+        transition: all 0.7s var(--ease-spring-2), opacity .2s ease;
 
         @starting-style {
           offset-distance: 40%;

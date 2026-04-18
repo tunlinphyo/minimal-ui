@@ -31,7 +31,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: var(--padding-y) var(--padding-x);
+  padding: var(--padding-y) var(--padding-x) 1rem;
 
   .contact-button {
     position: relative;
@@ -46,7 +46,7 @@
 
     & span {
       display: block;
-      font-size: clamp(1.4rem, 4vw, 1.65rem);
+      font-size: 1.4rem;
       clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
       color: oklch(from CanvasText l c h / 0.8);
       /* color: CanvasText; */
@@ -63,7 +63,7 @@
     align-items: center;
     position: relative;
 
-    &::before {
+    /* &::before {
       content: '';
       position: absolute;
       z-index: 0;
@@ -77,7 +77,7 @@
     :where(sun-moon) {
       position: relative;
       z-index: 1;
-    }
+    } */
   }
 }
 
@@ -92,6 +92,7 @@
   :where(.contact-button) {
     &:is(:hover) {
       outline: 2px solid GrayText;
+      /* outline-offset: 2px; */
     }
 
     &:is(:focus-visible) {

@@ -17,4 +17,22 @@
   font-weight: 400;
   font-style: normal;
   font-size: 100%;
+
+  --padding-y: clamp(2rem, max(5vw, 5vh), 3rem);
+  --padding-x: clamp(1rem, 2vw, 2rem);
+
+  --accent-color: light-dark(deeppink, deepskyblue);
+  --sunmoon-pos: calc(var(--padding-y) + 1rem);
+  --popover-bg: light-dark(
+    oklch(from Highlight 0.8 c h / 1),
+    oklch(from Highlight 0.2 c h / 1)
+  );
+  --popover-border: light-dark(
+    oklch(from Highlight l c h / 0.75),
+    oklch(from Highlight l c h / 0.2)
+  );
+  --about-bg: light-dark(
+    oklch(from Highlight 0.8 c h / 0.8),
+    oklch(from Highlight 0.2 c h / 0.8)
+  );
 }

@@ -1,5 +1,5 @@
 :where(.message) {
-  width: min(95vw, 90vh, 46rem);
+  width: min(95vw, 90vh, 44rem);
 
   @media (orientation: portrait) {
     max-width: 38rem;

@@ -6,6 +6,9 @@ export default defineConfig({
     host: true,
     port: 2222
   },
+  build: {
+    cssMinify: 'esbuild',
+  },
   test: {
     environment: 'jsdom',
     globals: true,

@@ -1,12 +1,13 @@
 
 :where(.about-me) {
-  --padding: clamp(1rem, 2vw, 1.25rem);
+  --padding: clamp(1rem, 2vw, 1.2rem);
   --button-bg: light-dark(
     color-mix(in srgb, Canvas, transparent 55%),
     Canvas
   );
-  background-color: var(--about-bg);
-  backdrop-filter: blur(10px);
+  /* background-color: var(--about-bg);
+  backdrop-filter: blur(10px); */
+  background-color: var(--popover-bg);
   color: CanvasText;
 
   padding: 0 var(--padding);
@@ -28,7 +29,7 @@
   }
 
   & h3 {
-    margin-top: 3.5rem;
+    margin-top: 3rem;
     font-size: clamp(2rem, 6vw, 2.5rem);
   }
 
@@ -107,11 +108,10 @@
 
     text-decoration: none;
     background-color: var(--button-bg);
-    color: CanvasText;
+    color: LinkText;
 
     &:is(:hover,:focus-visible) {
-      background-color: Canvas;
-      color: LinkText;
+      background-color: light-dark(Canvas, black);
     }
 
     &:is(:focus-visible) {

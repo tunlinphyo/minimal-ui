@@ -1,5 +1,5 @@
 :where(.contact) {
-  --width: min(85vw, 21rem);
+  --width: min(85vw, 20rem);
   width: var(--width);
   overflow: clip;
 
@@ -26,7 +26,7 @@
 
   &:popover-open {
     .tunlinphyo {
-      animation: avatar-in 0.7s var(--ease-spring-2);
+      animation: avatar-in 0.5s var(--ease-spring-1);
     }
   }
 }

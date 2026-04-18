@@ -1,5 +1,5 @@
 :where(.contact) {
-  --width: min(85vw, 20rem);
+  --width: min(85vw, 20.5rem);
   width: var(--width);
   overflow: clip;
 

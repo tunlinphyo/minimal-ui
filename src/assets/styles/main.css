@@ -44,6 +44,12 @@
 
     /* outline: 1px solid hotpink; */
 
+    border-radius: 10px;
+    @supports(corner-shape: squircle) {
+      border-radius: 20px;
+      corner-shape: squircle;
+    }
+
     & span {
       display: block;
       font-size: 1.4rem;
@@ -92,12 +98,13 @@
   :where(.contact-button) {
     &:is(:hover) {
       outline: 2px solid GrayText;
-      /* outline-offset: 2px; */
+      outline-offset: 2px;
     }
 
     &:is(:focus-visible) {
       outline: 2px solid var(--accent-color);
-      animation: AnimateOutline .2s ease;
+      outline-offset: 2px;
+      animation: AnimateOutline2 .2s ease;
     }
   }
 

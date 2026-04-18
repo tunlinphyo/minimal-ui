@@ -1,6 +1,6 @@
 
 :where(.about-me) {
-  --padding: clamp(1rem, 2vw, 1.2rem);
+  --padding: clamp(1rem, 2vw, 1.25rem);
   --button-bg: light-dark(
     color-mix(in srgb, Canvas, transparent 55%),
     Canvas

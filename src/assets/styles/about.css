@@ -1,9 +1,9 @@
 
 :where(.about-me) {
-  --padding: clamp(1.1rem, 2vw, 1.25rem);
+  --padding: clamp(1.2rem, 2vw, 1.25rem);
   --button-bg: light-dark(
-    color-mix(in srgb, Canvas, transparent 55%),
-    Canvas
+    oklch(from Canvas l c h / 0.3),
+    oklch(from Highlight l c h / 0.1)
   );
   /* background-color: var(--about-bg);
   backdrop-filter: blur(10px); */
@@ -108,10 +108,12 @@
 
     text-decoration: none;
     background-color: var(--button-bg);
-    color: LinkText;
-
+    /* color: var(--accent-color); */
+    color: CanvasText;
+    
     &:is(:hover,:focus-visible) {
-      background-color: light-dark(Canvas, black);
+      color: LinkText;
+      background-color: Canvas;
     }
 
     &:is(:focus-visible) {

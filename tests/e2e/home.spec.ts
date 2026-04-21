@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test'
-
 test('opens the contact popover and shows the contact links', async ({ page }) => {
   await page.goto('/')
 
@@ -36,20 +35,15 @@ test('loads the homepage and opens the testimonials dialog', async ({ page }) =>
   await expect(dialog).toHaveAttribute('open', '')
   await expect(dialog.getByRole('heading', { level: 2, name: 'What People Say' })).toBeVisible()
 
-  const people = dialog.getByRole('button', { name: /Open testimonial from Person / })
+  const people = dialog.getByRole('button', { name: /Open testimonial from / })
   const messages = dialog.locator('.message')
   const peopleCount = await people.count()
 
   for (let index = 0; index < peopleCount; index += 1) {
     await people.nth(index).click()
     await expect(messages.nth(index)).toBeVisible()
-
-    if (index < peopleCount - 1) {
-      await page.waitForTimeout(1000)
-    }
   }
 
-  await page.waitForTimeout(1000)
   await page.getByRole('button', { name: 'Close testimonials dialog' }).click()
   await expect(dialog).not.toHaveAttribute('open', '')
 })

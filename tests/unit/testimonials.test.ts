@@ -42,4 +42,27 @@ describe('testimonial people groups', () => {
     expect(count).toBe(groups.length)
     expect(indexes).toEqual(groups.map((_, index) => index + 1))
   })
+
+  it('keeps each trigger name aligned with its matching popover title and quote attribution', () => {
+    const groups = Array.from(page.querySelectorAll<HTMLElement>('.people-group'))
+
+    expect(groups.length).toBeGreaterThan(0)
+
+    for (const group of groups) {
+      const trigger = group.querySelector<HTMLButtonElement>('button.person[aria-label]')
+      const popoverTitle = group.querySelector<HTMLHeadingElement>('.message .sr-only')
+      const quotedName = group.querySelector<HTMLHeadingElement>('.about-quoter .name')
+
+      expect(trigger).not.toBeNull()
+      expect(popoverTitle).not.toBeNull()
+      expect(quotedName).not.toBeNull()
+
+      const triggerName = trigger?.getAttribute('aria-label')?.replace(/^Open testimonial from\s+/, '').trim()
+      const popoverName = popoverTitle?.textContent?.replace(/^Testimonial from\s+/, '').trim()
+      const quotedPersonName = quotedName?.textContent?.trim()
+
+      expect(triggerName).toBe(popoverName)
+      expect(triggerName).toBe(quotedPersonName)
+    }
+  })
 })

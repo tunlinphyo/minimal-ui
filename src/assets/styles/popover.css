@@ -28,7 +28,7 @@
     transform-origin: 75% 10%;
   }
 
-  border-radius: 35px;
+  border-radius: 40px;
   @supports(corner-shape: squircle) {
     border-radius: 80px;
     corner-shape: squircle;
@@ -70,9 +70,9 @@
   margin: auto;
   padding: 0;
 
-  border-radius: 35px;
+  border-radius: 40px;
   @supports(corner-shape: squircle) {
-    border-radius: clamp(60px, 10vw, 100px);
+    border-radius: clamp(80px, 12vw, 100px);
     corner-shape: squircle;
   }
 

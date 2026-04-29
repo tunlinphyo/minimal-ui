@@ -22,21 +22,28 @@
   bottom: anchor(bottom);
   right: anchor(right);
 
-  border-radius: 34px;
+  border-radius: 38px;
   @supports(corner-shape: squircle) {
-    border-radius: 68px;
+    border-radius: 76px;
     corner-shape: squircle;
   }
 
   & h3 {
-    margin-top: 3rem;
+    margin-top: 4rem;
     font-size: clamp(2rem, 6vw, 2.5rem);
   }
 
   & p {
     width: calc(var(--width) - (var(--padding) * 2));
-    margin-top: 0.75rem;
+    margin-top: 1rem;
     text-wrap: pretty;
+  }
+
+  .sign {
+    position: absolute;
+    right: 2.5rem;
+    bottom: 2rem;
+    color: oklch(from CanvasText l c h / 0.65);
   }
 
   @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
@@ -91,7 +98,7 @@
 :where(.recent-projects) {
   width: calc(var(--width) - (var(--padding) * 2));
   padding: 0;
-  margin-block-start: 1rem;
+  margin-block-start: 2rem;
 
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +116,7 @@
     text-decoration: none;
     background-color: var(--button-bg);
     /* color: var(--accent-color); */
-    color: CanvasText;
+    color: LinkText;
     
     &:is(:hover,:focus-visible) {
       color: LinkText;
@@ -127,5 +134,10 @@
 :where(.about-me:not([inert])) {
   a:is(:hover,:focus-visible) {
     transition: all .6s var(--ease-spring-2);
+  }
+
+  .draw {
+    animation: draw var(--duration) linear forwards;
+    animation-delay: var(--delay);
   }
 }

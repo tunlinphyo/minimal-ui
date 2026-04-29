@@ -181,7 +181,6 @@ html:has(.contact:popover-open) {
       width: 1.5rem;
       height: 2px;
       background-color: CanvasText;
-      /* background-color: ButtonText; */
       transition: transform 1s var(--ease-spring-3);
     }
 

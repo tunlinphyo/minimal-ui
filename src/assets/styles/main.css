@@ -83,7 +83,7 @@
       border-radius: 50%;
       opacity: 0;
       transition: box-shadow 0.3s var(--ease-quart-in), opacity 0.3s var(--ease-quart-in);
-      transition-delay: 0.6s;
+      /* transition-delay: 0.6s; */
       box-shadow:
         0 0 0 0 oklch(from var(--accent-color) l c h / 0.6),
         0 0 0 0 oklch(from var(--accent-color) l c h / 0.4),

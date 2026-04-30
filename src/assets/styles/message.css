@@ -1,5 +1,5 @@
 :where(.message) {
-  width: min(95vw, 90vh, 44rem);
+  width: min(95vw, 95vh, 44rem);
 
   @media (orientation: portrait) {
     max-width: 38rem;
@@ -48,7 +48,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: clip;
-      border: 2px solid GrayText;
+      /* border: 2px solid GrayText; */
 
       & img {
         display: block;

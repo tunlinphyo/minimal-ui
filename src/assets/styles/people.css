@@ -31,7 +31,7 @@
   offset-rotate: 0deg;
   offset-distance: 40%;
   offset-anchor: auto;
-  border: 2px solid var(--accent-color);
+  border: 3px solid var(--accent-color);
 
   & img {
     width: 100%;

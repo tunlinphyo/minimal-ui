@@ -83,14 +83,14 @@
       border-radius: 50%;
       opacity: 0;
       transition: box-shadow 0.3s var(--ease-quart-in), opacity 0.3s var(--ease-quart-in);
-      transition-delay: 1s;
-      box-shadow: 
+      transition-delay: 0.6s;
+      box-shadow:
         0 0 0 0 oklch(from var(--accent-color) l c h / 0.6),
         0 0 0 0 oklch(from var(--accent-color) l c h / 0.4),
         0 0 0 0 oklch(from var(--accent-color) l c h / 0.2)
       ;
     }
-    
+
     :where(sun-moon) {
       position: relative;
       z-index: 1;
@@ -122,7 +122,7 @@
     &:is(:hover)::before {
       transition: box-shadow 0.3s var(--ease-quart-out), opacity 0.3s var(--ease-quart-out);
       transition-delay: 0s;
-      box-shadow: 
+      box-shadow:
         0 0 0 1.5rem oklch(from var(--accent-color) l c h / 0.6),
         0 0 0 3rem oklch(from var(--accent-color) l c h / 0.4),
         0 0 0 4.5rem oklch(from var(--accent-color) l c h / 0.2)

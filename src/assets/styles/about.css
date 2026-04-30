@@ -5,8 +5,6 @@
     oklch(from Canvas l c h / 0.3),
     oklch(from Highlight l c h / 0.1)
   );
-  /* background-color: var(--about-bg);
-  backdrop-filter: blur(10px); */
   background-color: var(--popover-bg);
   color: CanvasText;
 
@@ -29,7 +27,7 @@
   }
 
   & h3 {
-    margin-top: 4rem;
+    margin-top: 3.75rem;
     font-size: clamp(2rem, 6vw, 2.5rem);
   }
 
@@ -39,20 +37,23 @@
     text-wrap: pretty;
   }
 
+  .recent-projects {
+    margin-block-start: 2rem;
+  }
+
   .sign {
     position: absolute;
-    right: 2.5rem;
-    bottom: 2rem;
-    color: oklch(from CanvasText l c h / 0.65);
+    right: 2.25rem;
+    bottom: 2.25rem;
+    color: color-mix(in oklab, CanvasText, Canvas 25%);
   }
 
   @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
     p:first-of-type::first-letter {
       initial-letter: 2;
       -webkit-initial-letter: 2;
-      margin-right: 0.25rem;
+      margin-right: 0.4rem;
       color: var(--accent-color);
-      /* color: ActiveText; */
     }
   }
 
@@ -98,7 +99,6 @@
 :where(.recent-projects) {
   width: calc(var(--width) - (var(--padding) * 2));
   padding: 0;
-  margin-block-start: 2rem;
 
   display: flex;
   flex-wrap: wrap;
@@ -117,7 +117,7 @@
     background-color: var(--button-bg);
     /* color: var(--accent-color); */
     color: LinkText;
-    
+
     &:is(:hover,:focus-visible) {
       color: LinkText;
       background-color: Canvas;

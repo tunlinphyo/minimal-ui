@@ -57,6 +57,23 @@
 :where(body) {
   background-color: Canvas;
   transition: background-color 0s linear 0.5s;
+
+  &::after {
+    content: '';
+    position: fixed;
+    z-index: 0;
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    width: min(80vw, 30rem);
+    aspect-ratio: 1;
+    translate: -50% -50%;
+
+    background-image: url(/tun.svg);
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 :where(sun-moon) {

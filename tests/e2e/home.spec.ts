@@ -26,7 +26,7 @@ test('opens the contact popover and shows the contact links', async ({ page }) =
 test('loads the homepage and opens the testimonials dialog', async ({ page }) => {
   await page.goto('/')
 
-  await expect(page).toHaveTitle('Tun Lin Phyo')
+  await expect(page).toHaveTitle('Tun\'s Portfolio')
   await expect(page.getByRole('heading', { level: 1, name: 'Frontend Engineer' })).toBeVisible()
 
   await page.getByRole('button', { name: 'Open testimonials dialog' }).click()

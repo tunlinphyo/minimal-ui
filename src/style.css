@@ -25,11 +25,11 @@
   --sunmoon-pos: calc(var(--padding-y) + 1rem);
   --popover-bg: light-dark(
     oklch(from Highlight 0.78 c h / 1),
-    oklch(from Highlight 0.18 c h / 1)
+    oklch(from Highlight 0.28 c h / 1)
   );
   --popover-border: light-dark(
-    oklch(from Highlight l c h / 0.75),
-    oklch(from Highlight l c h / 0.2)
+    oklch(from Highlight l c h / 0.72),
+    oklch(from Highlight l c h / 0.27)
   );
   /* --popover-bg: var(--accent-color);
   --popover-border: light-dark(

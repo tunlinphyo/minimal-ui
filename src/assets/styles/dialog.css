@@ -60,19 +60,39 @@
     }
 
     .testimonial-close {
+      rotate: 90deg;
+      /* .path {
+        d: path("M 5 5 L 5 5 M 2 2 L 8 8 M 2 8 L 8 2");
+        stroke: var(--accent-color);
+      } */
+      @starting-style {
+        rotate: 0deg;
+        /* .path {
+          d: path("M5 9L5 1M1.5 3L8.5 7M1.5 7L8.5 3");
+        } */
+      }
+      .line,&::before,&::after {
+        background-color: var(--accent-color);
+      }
+      .line {
+        transform: rotate(90deg) scale(0, 1);
+      }
       &::before {
-        transform: translate(0, 0) rotate(45deg) scale(1);
+        transform: rotate(45deg);
       }
       &::after {
-        transform: translate(0, 0) rotate(135deg) scale(1);
+        transform: rotate(-45deg);
       }
 
       @starting-style {
+        .line {
+          transform: rotate(90deg);
+        }
         &::before {
-          transform: translate(0, -3px) rotate(0deg) scale(1.05, 1);
+          transform: rotate(30deg);
         }
         &::after {
-          transform: translate(0, 3px) rotate(0deg) scale(1.05, 1);
+          transform: rotate(-30deg);
         }
       }
     }
@@ -85,11 +105,22 @@
     }
 
     .testimonial-close {
+      rotate: 0deg;
+      /* .path {
+        d: path("M5 9L5 1M1.5 3L8.5 7M1.5 7L8.5 3");
+        stroke: currentColor;
+      } */
+      .line,&::before,&::after {
+        background-color: currentColor;
+      }
+      .line {
+        transform: rotate(90deg);
+      }
       &::before {
-        transform: translate(0, -3px) rotate(0deg) scale(1.05, 1);
+        transform: rotate(30deg);
       }
       &::after {
-        transform: translate(0, 3px) rotate(0deg) scale(1.05, 1);
+        transform: rotate(-30deg);
       }
     }
   }
@@ -100,6 +131,7 @@
   justify-content: center;
   align-items: center;
   background-color: Canvas;
+  color: color-mix(in oklab, CanvasText, Canvas 35%);
 
   position: absolute;
   z-index: 2;
@@ -107,22 +139,35 @@
   bottom: var(--padding-y);
   bottom: var(--padding-y);
   translate: -50% 0;
+  rotate: 0deg;
+  transition: rotate 0.7s var(--ease-spring-2);
 
+  /* .path {
+    transition:
+      d 1s var(--ease-spring-3),
+      stroke 1s var(--ease-spring-3),
+      transform 1s var(--ease-spring-3);
+  } */
+
+  .line,
   &::before,
   &::after {
     content: '';
     position: absolute;
     width: 1.5rem;
-    height: 2px;
-    background-color: CanvasText;
+    height: 5px;
+    background-color: currentColor;
     transition: transform 1s var(--ease-spring-3);
   }
 
+  .line {
+    transform: rotate(90deg);
+  }
   &::before {
-    transform: translate(0, -3px) rotate(0deg) scale(1.1, 1);
+    transform: rotate(30deg);
   }
   &::after {
-    transform: translate(0, 3px) rotate(0deg) scale(1.1, 1);
+    transform: rotate(-30deg);
   }
 
   &:is(:hover) {

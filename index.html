@@ -57,7 +57,12 @@
 
       <footer>
         <button class="circle-button testimonial-open" commandfor="testimonial" command="show-modal"
-          aria-haspopup="dialog" aria-controls="testimonial" aria-label="Open testimonials dialog"></button>
+          aria-haspopup="dialog" aria-controls="testimonial" aria-label="Open testimonials dialog">
+          <div class="line"></div>
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="34" height="34">
+            <path d="M5 9L5 1M1.5 3L8.5 7M1.5 7L8.5 3" stroke="currentColor" stroke-width="1.8" fill="none" />
+          </svg> -->
+        </button>
       </footer>
     </main>
 
@@ -158,8 +163,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="73" height="48" viewBox="0 0 21 16">
             <style>
               .draw {
-                stroke-dasharray: 105;
-                stroke-dashoffset: 105;
+                stroke-dasharray: 102;
+                stroke-dashoffset: 102;
               }
 
               @keyframes draw {
@@ -169,9 +174,9 @@
               }
             </style>
             <g stroke="currentColor" fill="none">
-              <path class="draw" stroke-width="1.4" style="--duration: 150ms; --delay: 200ms" pathLength="100" d="M9 1L4 15" />
-              <path class="draw" stroke-width="1.4" style="--duration: 150ms; --delay: 350ms" pathLength="100" d="M1 6L20 2" />
-              <path class="draw" stroke-width="1.2" style="--duration: 250ms; --delay: 550ms" pathLength="100" d="M9 6L8 9Q7 13 11 8T13 8T15 7Q19 2 17 7T19 8" />
+              <path class="draw" stroke-width="1.6" style="--duration: 150ms; --delay: 200ms" pathLength="100" d="M9 1L4 15" />
+              <path class="draw" stroke-width="1.6" style="--duration: 150ms; --delay: 350ms" pathLength="100" d="M1 6L20 2" />
+              <path class="draw" stroke-width="1.4" style="--duration: 250ms; --delay: 550ms" pathLength="100" d="M9 6L8 9Q7 13 11 8T12.5 8T14 8Q18 2 17 7T18.5 8" />
               <text
                 class="draw"
                 x="13"
@@ -198,7 +203,7 @@
                 }
               }
             </style>
-            <g stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
               <path class="draw" style="--duration: 300ms; --delay: 200ms" pathLength="100" d="M12 5Q18 27 6 20T12 11Q26 9 20 13T18 12T17 8T23 1" />
               <path class="draw" style="--duration: 100ms; --delay: 500ms" pathLength="100" d="M3 7Q4 8 4 10" />
               <path class="draw" style="--duration: 100ms; --delay: 600ms" pathLength="100" d="M8 6Q9 7 9 9" />
@@ -209,15 +214,20 @@
     </section>
 
     <dialog id="testimonial" class="testimonials" aria-labelledby="testimonial-title">
-      <button type="button" commandfor="testimonial" command="close" class="circle-button testimonial-close" aria-label="Close testimonials dialog"></button>
+      <button type="button" commandfor="testimonial" command="close" class="circle-button testimonial-close" aria-label="Close testimonials dialog">
+        <div class="line"></div>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" width="34" height="34">
+          <path class="path" d="M5 9L5 1M1.5 3L8.5 7M1.5 7L8.5 3" stroke="currentColor" stroke-width="1.8" fill="none" />
+        </svg> -->
+      </button>
 
       <div class="people">
         <h2 id="testimonial-title">What People Say</h2>
 
         <div class="people-center" style="--count: 6">
-          <div class="people-group">
+          <div class="people-group" style="--border: rgb(239,195,73)">
             <button type="button" hoverclick="focusonly" popovertarget="message-1" class="person" data-name="MK"
-              style="--index: 1; --border: rgb(115,137,102)" aria-label="Open testimonial from Aung Myat Ko">
+              style="--index: 1" aria-label="Open testimonial from Aung Myat Ko">
               <img src="/people/10.jpg" alt="" decoding="async" fetchpriority="low" />
             </button>
             <div class="message" id="message-1" popover role="region" aria-labelledby="message-1-title">
@@ -230,7 +240,7 @@
                   strong attention to maintainability, performance, and long-term code quality. -->
                 </blockquote>
                 <div class="quoter">
-                  <div class="avatar" style="--border: rgb(115,137,102)">
+                  <div class="avatar">
                     <img src="/people/10.jpg" alt="" fetchpriority="low" />
                   </div>
                   <div class="about-quoter">
@@ -241,9 +251,9 @@
               </div>
             </div>
           </div>
-          <div class="people-group">
+          <div class="people-group" style="--border: rgb(111,184,149)">
             <button type="button" hoverclick="focusonly" popovertarget="message-2" class="person" data-name="YA"
-              style="--index: 2; --border: rgb(164,174,181)" aria-label="Open testimonial from Yeyint Aung">
+              style="--index: 2" aria-label="Open testimonial from Yeyint Aung">
               <img src="/people/3.jpg" alt="" decoding="async" fetchpriority="low" />
             </button>
             <div class="message" id="message-2" popover role="region" aria-labelledby="message-2-title">
@@ -256,7 +266,7 @@
                   that are both robust and intuitive for end users. -->
                 </blockquote>
                 <div class="quoter">
-                  <div class="avatar" style="--border: rgb(164,174,181)">
+                  <div class="avatar">
                     <img src="/people/3.jpg" alt="" fetchpriority="low">
                   </div>
                   <div class="about-quoter">
@@ -267,9 +277,9 @@
               </div>
             </div>
           </div>
-          <div class="people-group">
+          <div class="people-group" style="--border: rgb(164,174,181)">
             <button type="button" hoverclick="focusonly" popovertarget="message-3" class="person" data-name="KZ"
-              style="--index: 3; --border: rgb(111,184,149)" aria-label="Open testimonial from Kyaw Zay Moore">
+              style="--index: 3" aria-label="Open testimonial from Kyaw Zay Moore">
               <img src="/people/5.jpg" alt="" decoding="async" fetchpriority="low" />
             </button>
             <div class="message" id="message-3" popover role="region" aria-labelledby="message-3-title">
@@ -282,7 +292,7 @@
                   between technical implementation and business requirements. -->
                 </blockquote>
                 <div class="quoter">
-                  <div class="avatar" style="--border: rgb(111,184,149)">
+                  <div class="avatar">
                     <img src="/people/5.jpg" alt="" fetchpriority="low">
                   </div>
                   <div class="about-quoter">
@@ -293,9 +303,9 @@
               </div>
             </div>
           </div>
-          <div class="people-group">
+          <div class="people-group" style="--border: rgb(234,120,155)">
             <button type="button" hoverclick="focusonly" popovertarget="message-5" class="person" data-name="NA"
-              style="--index: 4; --border: rgb(234,120,155)" aria-label="Open testimonial from Nandar Aye">
+              style="--index: 4" aria-label="Open testimonial from Nandar Aye">
               <img src="/people/2.jpg" alt="" decoding="async" fetchpriority="low" />
             </button>
             <div class="message" id="message-5" popover role="region" aria-labelledby="message-5-title">
@@ -308,7 +318,7 @@
                   production-ready solutions across browsers, devices, and multilingual environments. -->
                 </blockquote>
                 <div class="quoter">
-                  <div class="avatar" style="--border: rgb(234,120,155)">
+                  <div class="avatar">
                     <img src="/people/2.jpg" alt="" fetchpriority="low">
                   </div>
                   <div class="about-quoter">
@@ -319,9 +329,9 @@
               </div>
             </div>
           </div>
-          <div class="people-group">
+          <div class="people-group" style="--border: rgb(232,139,62)">
             <button type="button" hoverclick="focusonly" popovertarget="message-4" class="person" data-name="MM"
-              style="--index: 5; --border: rgb(239,195,73)" aria-label="Open testimonial from Myo Maung Maung">
+              style="--index: 5" aria-label="Open testimonial from Myo Maung Maung">
               <img src="/people/12.jpg" alt="" decoding="async" fetchpriority="low" />
             </button>
             <div class="message" id="message-4" popover role="region" aria-labelledby="message-4-title">
@@ -334,7 +344,7 @@
                   user experiences, even under complex interaction scenarios. -->
                 </blockquote>
                 <div class="quoter">
-                  <div class="avatar" style="--border: rgb(239,195,73)">
+                  <div class="avatar">
                     <img src="/people/12.jpg" alt="" fetchpriority="low">
                   </div>
                   <div class="about-quoter">
@@ -345,9 +355,9 @@
               </div>
             </div>
           </div>
-          <div class="people-group">
+          <div class="people-group" style="--border: rgb(214,79,74)">
             <button type="button" hoverclick="focusonly" popovertarget="message-6" class="person" data-name="NL"
-              style="--index: 6; --border: rgb(212,79,74)" aria-label="Open testimonial from Naing Luu">
+              style="--index: 6" aria-label="Open testimonial from Naing Luu">
               <img src="/people/8.jpg" alt="" decoding="async" fetchpriority="low" />
             </button>
             <div class="message" id="message-6" popover role="region" aria-labelledby="message-6-title">
@@ -358,7 +368,7 @@
                   deliver consistent, dependable engineering outcomes.
                 </blockquote>
                 <div class="quoter">
-                  <div class="avatar" style="--border: rgb(212,79,74)">
+                  <div class="avatar">
                     <img src="/people/8.jpg" alt="" fetchpriority="low">
                   </div>
                   <div class="about-quoter">

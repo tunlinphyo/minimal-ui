@@ -15,6 +15,11 @@
     display: grid;
     place-content: center;
     gap: 1.8rem;
+
+    background-image: url(/svg-path.svg);
+    background-size: 35%;
+    background-position: 116% 0%;
+    background-repeat: no-repeat;
   }
 
   & blockquote {
@@ -48,7 +53,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: clip;
-      /* border: 2px solid GrayText; */
+      /* border: 2px solid var(--border); */
 
       & img {
         display: block;

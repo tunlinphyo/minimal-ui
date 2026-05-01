@@ -2,10 +2,11 @@
 :where(.about-me) {
   --padding: clamp(1.2rem, 2vw, 1.25rem);
   --button-bg: light-dark(
-    oklch(from Canvas l c h / 0.3),
+    oklch(from Highlight l c h / 0.2),
     oklch(from Highlight l c h / 0.1)
   );
   background-color: var(--popover-bg);
+  background-image: linear-gradient(to bottom, var(--popover-bg), Canvas);
   color: CanvasText;
 
   padding: 0 var(--padding);
@@ -27,7 +28,9 @@
   }
 
   & h3 {
-    margin-top: 3.75rem;
+    margin-top: 3.5rem;
+    /* font-weight: 700;
+    color: color-mix(in oklab, CanvasText, Canvas 25%); */
     font-size: clamp(2rem, 6vw, 2.5rem);
   }
 
@@ -38,7 +41,7 @@
   }
 
   .recent-projects {
-    margin-block-start: 2rem;
+    margin-block-start: 1.5rem;
   }
 
   .sign {
@@ -54,6 +57,7 @@
       -webkit-initial-letter: 2;
       margin-right: 0.4rem;
       color: var(--accent-color);
+      /* text-shadow: 0 0 10px var(--accent-color); */
     }
   }
 
@@ -79,9 +83,13 @@
   &::after {
     content: "";
     position: absolute;
-    width: 1.5rem;
-    height: 2px;
-    background-color: CanvasText;
+    width: 1.4rem;
+    height: 5px;
+    background-color: light-dark(
+      color-mix(in oklab, CanvasText, Canvas 35%),
+      color-mix(in oklab, CanvasText, Canvas 25%)
+    );
+    /* background-color: var(--popover-bg); */
   }
   &::before {
     transform: rotate(45deg);
@@ -109,7 +117,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.3rem 0.6rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 100vh;
     border: 2px solid transparent;
 

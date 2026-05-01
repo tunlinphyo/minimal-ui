@@ -154,7 +154,7 @@
   &::after {
     content: '';
     position: absolute;
-    width: 1.5rem;
+    width: 1.6rem;
     height: 5px;
     background-color: currentColor;
     transition: transform 1s var(--ease-spring-3);

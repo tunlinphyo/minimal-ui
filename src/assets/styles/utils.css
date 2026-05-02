@@ -65,9 +65,9 @@
     opacity: 0.1;
     top: 50%;
     left: 50%;
+    translate: -50% -50%;
     width: min(80vw, 30rem);
     aspect-ratio: 1;
-    translate: -50% -50%;
 
     background-image: url(/tun.svg);
     background-size: 100% auto;

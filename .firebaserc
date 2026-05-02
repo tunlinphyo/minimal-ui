@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "tun-online"
-  }
+    "default": "tun-ui"
+  },
+  "targets": {},
+  "etags": {}
 }

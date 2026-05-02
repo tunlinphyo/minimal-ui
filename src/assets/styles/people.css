@@ -48,7 +48,6 @@
 
 :where(.person) {
   --move: 0%;
-  /* todo update start offset 55% and end 95% */
   --distance: calc(51% + ((var(--index) - 1) * 48%) / max(1, (var(--count) - 1)) + var(--move));
   --radius: 50%;
   --size: clamp(3.5rem, 6vw, 4rem);

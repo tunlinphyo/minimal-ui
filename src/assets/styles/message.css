@@ -16,10 +16,17 @@
     place-content: center;
     gap: 1.8rem;
 
-    background-image: url(/svg-path.svg);
+    background-image: url(/quote-mark.svg);
     background-size: 35%;
-    background-position: 116% 0%;
+    background-position: 105% 0%;
     background-repeat: no-repeat;
+  }
+
+  .quotemark {
+    font-size: clamp(1.2rem, max(2.6vw, 2.8vh), 1.8rem);
+    width: 1.6em;
+    color: var(--accent-color);
+    margin-bottom: -1rem;
   }
 
   & blockquote {
@@ -27,19 +34,7 @@
     text-align: left;
     color: CanvasText;
     font-size: clamp(1.2rem, max(2.6vw, 2.8vh), 1.8rem);
-    padding-inline-start: 0.5em;
-    padding-block-start: 2em;
-    /* text-wrap: pretty; */
-
-    &::before {
-      content: "\201F";
-      display: block;
-      font-size: 5em;
-      font-weight: 400;
-      line-height: 0.1;
-      color: var(--accent-color);
-      translate: -0.1em;
-    }
+    text-wrap: pretty;
   }
 
   .quoter {

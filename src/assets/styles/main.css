@@ -179,25 +179,20 @@ html:has(.contact:popover-open) {
     color: color-mix(in oklab, CanvasText, Canvas 35%);
     /* background-color: ButtonFace; */
 
-    .line,
     &::before,
     &::after {
       content: '';
       position: absolute;
-      width: 1.6rem;
-      height: 5px;
+      width: 12px;
+      height: 24px;
       background-color: currentColor;
-      transition: transform 1s var(--ease-spring-3);
-    }
-
-    .line {
-      transform: rotate(90deg);
+      clip-path: var(--mark-path);
     }
     &::before {
-      transform: rotate(30deg);
+      transform: translate(-8px, 1px);
     }
     &::after {
-      transform: rotate(-30deg);
+      transform: translate(8px, 1px);
     }
   }
 }

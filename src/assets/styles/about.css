@@ -83,8 +83,8 @@
   &::after {
     content: "";
     position: absolute;
-    width: 1.4rem;
-    height: 5px;
+    width: 1.2rem;
+    height: 6px;
     background-color: light-dark(
       color-mix(in oklab, CanvasText, Canvas 35%),
       color-mix(in oklab, CanvasText, Canvas 25%)

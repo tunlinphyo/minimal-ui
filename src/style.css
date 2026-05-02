@@ -12,6 +12,9 @@
 :root {
   color-scheme: light dark;
 
+  --mark-path: path("M 0 0 L 12 0 L 12 10 L 6 10 Q 6 16 12 18 L 12 24 Q 0 21 0 10 L 0 0 Z");
+  --line-path: path("M 2 0 L 10 0 L 10 10 L 10 10 Q 10 17 10 24 L 2 24 Q 2 17 2 10 L 2 0 Z");
+
   font-family: "Google Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

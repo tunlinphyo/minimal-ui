@@ -33,7 +33,7 @@
   offset-distance: 40%;
   offset-anchor: auto;
   box-shadow: var(--border) 0px 2px 8px 0px;
-  /* border: 2px solid var(--border); */
+  /* border: 1px solid Canvas; */
 
   & img {
     width: 100%;
@@ -64,11 +64,9 @@
     inset: 0;
     pointer-events: none;
     border-radius: var(--radius);
-    /* background-color: Canvas;
-    background-image: linear-gradient(GrayText, GrayText); */
     background-color: var(--border);
-    background-image: url(/svg-path.svg);
-    background-size: 100%;
+    background-image: url(/quote-mark.svg);
+    background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);

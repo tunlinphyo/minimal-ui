@@ -60,39 +60,27 @@
     }
 
     .testimonial-close {
-      rotate: 90deg;
-      /* .path {
-        d: path("M 5 5 L 5 5 M 2 2 L 8 8 M 2 8 L 8 2");
-        stroke: var(--accent-color);
-      } */
-      @starting-style {
-        rotate: 0deg;
-        /* .path {
-          d: path("M5 9L5 1M1.5 3L8.5 7M1.5 7L8.5 3");
-        } */
-      }
-      .line,&::before,&::after {
+      &::before,&::after {
         background-color: var(--accent-color);
-      }
-      .line {
-        transform: rotate(90deg) scale(0, 1);
+        clip-path: var(--line-path);
       }
       &::before {
-        transform: rotate(45deg);
+        transform: translate(0, 0) rotate(135deg);
       }
       &::after {
-        transform: rotate(-45deg);
+        transform: translate(0, 0) rotate(45deg);
       }
 
       @starting-style {
-        .line {
-          transform: rotate(90deg);
+        &::before,&::after {
+          background-color: currentColor;
+          clip-path: var(--mark-path);
         }
         &::before {
-          transform: rotate(30deg);
+          transform: translate(-8px, 1px);
         }
         &::after {
-          transform: rotate(-30deg);
+          transform: translate(8px, 1px);
         }
       }
     }
@@ -105,22 +93,15 @@
     }
 
     .testimonial-close {
-      rotate: 0deg;
-      /* .path {
-        d: path("M5 9L5 1M1.5 3L8.5 7M1.5 7L8.5 3");
-        stroke: currentColor;
-      } */
-      .line,&::before,&::after {
+      &::before,&::after {
         background-color: currentColor;
-      }
-      .line {
-        transform: rotate(90deg);
+        clip-path: var(--mark-path);
       }
       &::before {
-        transform: rotate(30deg);
+        transform: translate(-8px, 1px);
       }
       &::after {
-        transform: rotate(-30deg);
+        transform: translate(8px, 1px);
       }
     }
   }
@@ -139,35 +120,22 @@
   bottom: var(--padding-y);
   bottom: var(--padding-y);
   translate: -50% 0;
-  rotate: 0deg;
-  transition: rotate 0.7s var(--ease-spring-2);
 
-  /* .path {
-    transition:
-      d 1s var(--ease-spring-3),
-      stroke 1s var(--ease-spring-3),
-      transform 1s var(--ease-spring-3);
-  } */
-
-  .line,
   &::before,
   &::after {
     content: '';
     position: absolute;
-    width: 1.6rem;
-    height: 5px;
+    width: 12px;
+    height: 24px;
     background-color: currentColor;
-    transition: transform 1s var(--ease-spring-3);
-  }
-
-  .line {
-    transform: rotate(90deg);
+    transition: all 1s var(--ease-spring-3);
+    clip-path: var(--mark-path);
   }
   &::before {
-    transform: rotate(30deg);
+    transform: translate(-8px, 1px);
   }
   &::after {
-    transform: rotate(-30deg);
+    transform: translate(8px, 1px);
   }
 
   &:is(:hover) {

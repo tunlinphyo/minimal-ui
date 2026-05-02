@@ -16,7 +16,8 @@
 
 :where(.person) {
   --move: 0%;
-  --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)) + var(--move));
+  /* todo update start offset 55% and end 95% */
+  --distance: calc(51% + ((var(--index) - 1) * 48%) / max(1, (var(--count) - 1)) + var(--move));
   --radius: 50%;
   --size: clamp(3.5rem, 6vw, 4rem);
 
@@ -27,10 +28,11 @@
   height: var(--size);
   border-radius: var(--radius);
 
-  offset-path: circle(clamp(80px, 35vw, 160px) at 50% 50%);
+  offset-path: circle(clamp(80px, 35vw, 150px) at 50% 50%);
   offset-rotate: 0deg;
   offset-distance: 40%;
   offset-anchor: auto;
+  box-shadow: var(--border) 0px 2px 8px 0px;
   /* border: 2px solid var(--border); */
 
   & img {

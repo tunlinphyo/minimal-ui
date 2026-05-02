@@ -10,25 +10,7 @@
     position: relative;
     z-index: 5;
     font-size: clamp(2rem, 6vw, 2.5rem);
-    opacity: 0;
-    transition: opacity .5s ease;
     color: CanvasText;
-  }
-
-  &[open] {
-    h2 {
-      opacity: 1;
-
-      @starting-style {
-        opacity: 0;
-      }
-    }
-  }
-
-  &[data-closing] {
-    h2 {
-      opacity: 0;
-    }
   }
 }
 
@@ -39,23 +21,40 @@
 
   padding: 0;
 
+  .heading {
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
+
   &::backdrop {
     opacity: 0;
     background-color: transparent;
     transition: opacity var(--delay) ease;
+    background-color: oklch(from Canvas l c h / 0.7);
     background-image:
       radial-gradient(transparent 1px, Canvas 1px),
       radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, Canvas 100%)
     ;
-    background-size: 3px 3px, auto auto;
+    background-size: 4px 4px, auto auto;
   }
 
   &[open] {
-    &::backdrop {
+    &::backdrop, .heading {
       opacity: 1;
 
       @starting-style {
         opacity: 0;
+      }
+    }
+
+    .arrow-container {
+      .draw-1 {
+        animation: draw 0.3s linear forwards;
+        animation-delay: 0.7s;
+      }
+      .draw-2 {
+        animation: draw 0.2s linear forwards;
+        animation-delay: 1s;
       }
     }
 
@@ -88,8 +87,22 @@
 
 
   &[data-closing] {
-    &::backdrop, .testimonial-blob {
+    &::backdrop, .heading, .testimonial-blob {
       opacity: 0;
+    }
+
+    .arrow-container {
+      .draw {
+        stroke-dashoffset: 0;
+      }
+      .draw-1 {
+        animation: draw-back 0.3s linear forwards;
+        animation-delay: 0.1s;
+      }
+      .draw-2 {
+        animation: draw-back 0.05s linear forwards;
+        animation-delay: 0s;
+      }
     }
 
     .testimonial-close {

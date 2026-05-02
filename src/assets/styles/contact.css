@@ -77,7 +77,7 @@
     position: absolute;
     z-index: 1;
     inset: 40% 0 0;
-    padding: 1.5rem clamp(1.5rem, 2vw, 2rem);
+    padding: 1.5rem clamp(1.5rem, 2vw, 2rem) 2rem;
 
     display: flex;
     justify-content: center;

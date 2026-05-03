@@ -69,6 +69,7 @@
   inset: 0;
   margin: auto;
   padding: 0;
+  overflow: visible;
 
   border-radius: 40px;
   @supports(corner-shape: squircle) {

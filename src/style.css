@@ -34,9 +34,4 @@
     oklch(from Highlight l c h / 0.72),
     oklch(from Highlight l c h / 0.27)
   );
-  /* --popover-bg: var(--accent-color);
-  --popover-border: light-dark(
-    oklch(from var(--accent-color) l c h / 0.75),
-    oklch(from var(--accent-color) l c h / 0.2)
-  ); */
 }

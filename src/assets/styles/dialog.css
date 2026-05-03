@@ -50,11 +50,11 @@
     .arrow-container {
       .draw-1 {
         animation: draw 0.3s linear forwards;
-        animation-delay: 0.7s;
+        animation-delay: 0.5s;
       }
       .draw-2 {
         animation: draw 0.2s linear forwards;
-        animation-delay: 1s;
+        animation-delay: 0.8s;
       }
     }
 

@@ -184,6 +184,7 @@ html:has(.contact:popover-open) {
       width: 12px;
       height: 24px;
       background-color: currentColor;
+      background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
       clip-path: var(--mark-path);
     }
     &::before {

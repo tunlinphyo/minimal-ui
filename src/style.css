@@ -34,4 +34,31 @@
     oklch(from Highlight l c h / 0.72),
     oklch(from Highlight l c h / 0.27)
   );
+
+  --gray-start: light-dark(
+    color-mix(in oklab, CanvasText, Canvas 60%),
+    color-mix(in oklab, CanvasText, Canvas 10%)
+  );
+  --gray-end: light-dark(
+    color-mix(in oklab, CanvasText, Canvas 10%),
+    color-mix(in oklab, CanvasText, Canvas 50%)
+  );
+
+  --accent-start: light-dark(
+    color-mix(in oklab, var(--accent-color), Canvas 30%),
+    var(--accent-color)
+  );
+  --accent-end: light-dark(
+    var(--accent-color),
+    color-mix(in oklab, var(--accent-color), Canvas 40%)
+  );
+
+  --link-start: light-dark(
+    color-mix(in oklab, LinkText, Canvas 25%),
+    LinkText
+  );
+  --link-end: light-dark(
+    LinkText,
+    color-mix(in oklab, LinkText, Canvas 50%)
+  );
 }

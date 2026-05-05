@@ -128,13 +128,17 @@
     background-repeat: no-repeat;
     background-position: 0.8rem 79%;
     background-size: calc(100% - 2.75rem) 1px;
-    
+    border: 1px solid transparent;
     transition: background 0.3s var(--ease-sine-out);
     
     &:is(:hover,:focus-visible) {
       color: LinkText;
       background-color: Canvas;
       background-size: 0 1px;
+    }
+
+    &:is(:hover) {
+      border: 1px solid LinkText; /* light-dark(Canvas, LinkText); */
     }
 
     &:is(:focus-visible) {

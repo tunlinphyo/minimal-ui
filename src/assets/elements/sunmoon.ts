@@ -49,8 +49,21 @@ export class SunMoon extends HTMLElement {
     const moonColor = this.getAttribute('moon-color') || sunColor
     const color = this.theme === 'dark' ? moonColor : sunColor
 
+    this.syncPaintServer(color)
     this.style.setProperty('--sun-moon-size', size || '48px')
-    this.style.setProperty('--sun-moon-color', color)
+    this.style.setProperty('--sun-moon-paint', color)
+  }
+
+  syncPaintServer(paint: string): void {
+    const id = paint.match(/^url\(\s*(['"]?)#([^'")\s]+)\1\s*\)$/)?.[2]
+    if (!id || !this.shadowRoot) return
+
+    const source = document.getElementById(id)
+    const defs = this.shadowRoot.getElementById('paint-servers')
+    if (!source || !defs) return
+
+    defs.querySelector(`#${CSS.escape(id)}`)?.remove()
+    defs.append(source.cloneNode(true))
   }
 
   render(): void {
@@ -60,7 +73,7 @@ export class SunMoon extends HTMLElement {
           display: inline-block;
           width: var(--sun-moon-size, 24px);
           height: var(--sun-moon-size, 24px);
-          color: var(--sun-moon-color, CanvasText);
+          color: CanvasText;
           line-height: 0;
         }
 
@@ -79,12 +92,12 @@ export class SunMoon extends HTMLElement {
         }
 
         #center {
-          fill: currentColor;
+          fill: var(--sun-moon-paint, currentColor);
           transform: rotate(-35deg);
         }
 
         #rays {
-          stroke: currentColor;
+          stroke: var(--sun-moon-paint, currentColor);
           stroke-width: 2px;
         }
 
@@ -103,6 +116,7 @@ export class SunMoon extends HTMLElement {
 
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <defs>
+          <g id="paint-servers"></g>
           <mask id="maskc">
             <rect x="0" y="0" width="32" height="32" fill="white"></rect>
             <circle id="mask-center" cx="40" cy="16" r="8" fill="black"></circle>

@@ -67,7 +67,10 @@
       }
       .position {
         font-size: 1rem;
-        color: color-mix(in oklab, CanvasText, Canvas 35%);
+        color: light-dark(
+          color-mix(in oklab, CanvasText, Canvas 50%),
+          color-mix(in oklab, CanvasText, Canvas 25%)
+        );
       }
     }
   }

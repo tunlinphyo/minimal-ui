@@ -65,14 +65,17 @@
       }
       &::before {
         transform: translate(0, 0) rotate(135deg);
+        background-image: linear-gradient(0deg, var(--accent-start), var(--accent-end));
       }
       &::after {
         transform: translate(0, 0) rotate(45deg);
+        background-image: linear-gradient(-190deg, var(--accent-start), var(--accent-end));
       }
 
       @starting-style {
         &::before,&::after {
           background-color: currentColor;
+          background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
           clip-path: var(--mark-path);
         }
         &::before {
@@ -108,6 +111,7 @@
     .testimonial-close {
       &::before,&::after {
         background-color: currentColor;
+        background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
         clip-path: var(--mark-path);
       }
       &::before {
@@ -141,6 +145,7 @@
     width: 12px;
     height: 24px;
     background-color: currentColor;
+    background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
     transition: all 1s var(--ease-spring-3);
     clip-path: var(--mark-path);
   }

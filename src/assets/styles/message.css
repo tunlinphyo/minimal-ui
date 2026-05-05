@@ -1,13 +1,14 @@
 :where(.message) {
   width: min(95vw, 95vh, 44rem);
+  max-width: 60ch;
 
-  @media (orientation: portrait) {
+  /* @media (orientation: portrait) {
     max-width: 38rem;
   }
 
   @media (min-width: 38rem) {
     max-width: 75vw;
-  }
+  } */
 
   .message-container {
     padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 3vw, 3rem);

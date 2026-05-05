@@ -2,7 +2,7 @@
 :where(.about-me) {
   --padding: clamp(1.2rem, 2vw, 1.25rem);
   --button-bg: light-dark(
-    oklch(from Highlight l c h / 0.2),
+    oklch(from Highlight l c h / 0.3),
     oklch(from Highlight l c h / 0.1)
   );
   background-color: var(--popover-bg);
@@ -123,12 +123,18 @@
 
     text-decoration: none;
     background-color: var(--button-bg);
-    /* color: var(--accent-color); */
     color: LinkText;
-
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0.8rem 79%;
+    background-size: calc(100% - 2.75rem) 1px;
+    
+    transition: background 0.3s var(--ease-sine-out);
+    
     &:is(:hover,:focus-visible) {
       color: LinkText;
       background-color: Canvas;
+      background-size: 0 1px;
     }
 
     &:is(:focus-visible) {
@@ -139,10 +145,16 @@
   }
 }
 
-:where(.about-me:not([inert])) {
-  a:is(:hover,:focus-visible) {
-    transition: all .6s var(--ease-spring-2);
+/* @media (hover: none) and (pointer: coarse) {
+  :where(.recent-projects) a {
+    background-size: calc(100% - 2.75rem) 1px;
   }
+} */
+
+:where(.about-me:not([inert])) {
+  /* a:is(:hover,:focus-visible) {
+    transition: all .6s var(--ease-spring-2);
+  } */
 
   .draw {
     animation: draw var(--duration) linear forwards;

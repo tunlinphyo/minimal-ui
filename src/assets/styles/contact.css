@@ -171,6 +171,7 @@
 :where(.contact:has(.contact-list a:hover,.contact-list a:focus-visible)) {
   .blob {
     background-color: Canvas;
+    border: 1px solid LinkText;
     /* border-color: oklch(from GrayText l c h / 0.3); */
   }
 }

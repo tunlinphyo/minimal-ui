@@ -46,19 +46,13 @@
 
   --accent-start: light-dark(
     color-mix(in oklab, var(--accent-color), Canvas 30%),
-    var(--accent-color)
+    color-mix(in oklab, var(--accent-color), CanvasText 30%)
   );
-  --accent-end: light-dark(
-    var(--accent-color),
-    color-mix(in oklab, var(--accent-color), Canvas 40%)
-  );
+  --accent-end: var(--accent-color);
 
   --link-start: light-dark(
     color-mix(in oklab, LinkText, Canvas 25%),
-    LinkText
+    color-mix(in oklab, LinkText, CanvasText 25%)
   );
-  --link-end: light-dark(
-    LinkText,
-    color-mix(in oklab, LinkText, Canvas 50%)
-  );
+  --link-end: LinkText;
 }

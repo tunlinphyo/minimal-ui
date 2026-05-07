@@ -170,11 +170,11 @@ html:has(.contact:popover-open) {
   .contact-button {
     &::before {
       transform: translate(0, 6rem) scale(6);
-      opacity: 0;
+      opacity: 0.5;
     }
     &::after {
       transform: translate(0, 2rem) scale(2,4);
-      opacity: 0;
+      opacity: 0.5;
     }
   }
 }

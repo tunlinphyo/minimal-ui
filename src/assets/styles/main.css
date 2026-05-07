@@ -32,71 +32,42 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--padding-y) var(--padding-x) 1rem;
+}
 
-  .contact-button {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    anchor-name: --contect-popover;
-    padding-inline: 0.2rem;
+:where(.sunmoon) {
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-    border-radius: 5px;
-    @supports(corner-shape: squircle) {
-      border-radius: 20px;
-      corner-shape: squircle;
-    }
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
 
-    & span {
-      display: block;
-      font-size: 1.4rem;
-      /* font-weight: 600; */
-      clip-path: polygon(0 0, 100% 0, 100% 52%, 0 52%);
-      color: light-dark(
-        oklch(from CanvasText l c h / 0.8),
-        oklch(from CanvasText l c h / 0.65)
-      );
-      /* color: CanvasText; */
-      transition: all .3s var(--ease-out-2);
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: -0.25rem;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: box-shadow 0.3s var(--ease-quart-in), opacity 0.3s var(--ease-quart-in);
+    /* transition-delay: 0.6s; */
+    box-shadow:
+      0 0 0 0 oklch(from var(--accent-color) l c h / 0.6),
+      0 0 0 0 oklch(from var(--accent-color) l c h / 0.4),
+      0 0 0 0 oklch(from var(--accent-color) l c h / 0.2)
+    ;
   }
 
-  .sunmoon {
-    width: 3rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  :where(sun-moon) {
     position: relative;
-
-    -webkit-appearance: none;
-    appearance: none;
-    overflow: visible;
-    -webkit-tap-highlight-color: transparent;
-
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: 0;
-      inset: -0.25rem;
-      background-color: var(--accent-color);
-      border-radius: 50%;
-      opacity: 0;
-      transition: box-shadow 0.3s var(--ease-quart-in), opacity 0.3s var(--ease-quart-in);
-      /* transition-delay: 0.6s; */
-      box-shadow:
-        0 0 0 0 oklch(from var(--accent-color) l c h / 0.6),
-        0 0 0 0 oklch(from var(--accent-color) l c h / 0.4),
-        0 0 0 0 oklch(from var(--accent-color) l c h / 0.2)
-      ;
-    }
-
-    :where(sun-moon) {
-      position: relative;
-      z-index: 1;
-    }
+    z-index: 1;
   }
 }
 
@@ -106,8 +77,64 @@
   }
 }
 
+:where(.contact-button) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 2px;
+  anchor-name: --contect-popover;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 0.8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-image: linear-gradient(160deg, var(--gray-start), var(--gray-end));
+    transition: all .3s var(--ease-sine-out);
+  }
+  &::after {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    aspect-ratio: 2/1;
+    border-radius: 50%;
+    background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
+    transition: all .3s var(--ease-out-3);
+  }
+}
+
+:where(.testimonial-open) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  color: color-mix(in oklab, CanvasText, Canvas 35%);
+  /* background-color: ButtonFace; */
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 24px;
+    background-color: currentColor;
+    background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
+    clip-path: var(--mark-path);
+  }
+  &::before {
+    transform: translate(-8px, 1px);
+  }
+  &::after {
+    transform: translate(8px, 1px);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
-  :where(.contact-button) {
+  /* :where(.contact-button) {
     &:is(:hover) {
       outline: 2px solid GrayText;
       outline-offset: 2px;
@@ -118,7 +145,7 @@
       outline-offset: 2px;
       animation: AnimateOutline2 .2s ease;
     }
-  }
+  } */
 
   :where(.sunmoon) {
     &:is(:hover)::before {
@@ -141,22 +168,13 @@
 
 html:has(.contact:popover-open) {
   .contact-button {
-    & span {
-      transform: translate(0, 2rem) scale(2);
+    &::before {
+      transform: translate(0, 6rem) scale(6);
       opacity: 0;
     }
-    .dot {
-      transform: translate(0, 5rem) scale(3);
-      background-color: LinkText;
+    &::after {
+      transform: translate(0, 2rem) scale(2,4);
       opacity: 0;
-      transition: all .3s var(--ease-out-2);
-
-      &:nth-child(1) {
-        transform: translate(-3rem, 5rem) scale(3);
-      }
-      &:nth-child(3) {
-        transform: translate(3rem, 5rem) scale(3);
-      }
     }
   }
 }
@@ -167,33 +185,6 @@ html:has(.contact:popover-open) {
   align-items: flex-end;
   padding: var(--padding-x);
   padding-bottom: var(--padding-y);
-
-  .testimonial-open {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 5;
-    color: color-mix(in oklab, CanvasText, Canvas 35%);
-    /* background-color: ButtonFace; */
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      width: 12px;
-      height: 24px;
-      background-color: currentColor;
-      background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
-      clip-path: var(--mark-path);
-    }
-    &::before {
-      transform: translate(-8px, 1px);
-    }
-    &::after {
-      transform: translate(8px, 1px);
-    }
-  }
 }
 
 :where(html:has(.contact:popover-open):has(.contact-button:is(:focus-visible))) {

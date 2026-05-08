@@ -26,6 +26,26 @@
   width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
+
+  .info {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    translate: -50% -10%;
+    white-space: nowrap;
+    background-color: oklch(from CanvasText l c h / 0.5);
+    color: Canvas;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    scale: 0;
+    transform-origin: bottom center;
+    transition: all 0.15s var(--ease-sine-out);
+
+    border-radius: 20px;
+    @supports(corner-shape: squircle) {
+      corner-shape: squircle;
+    }
+  }
 }
 
 :where(.sr-only) {
@@ -62,7 +82,7 @@
     content: '';
     position: fixed;
     z-index: 0;
-    opacity: 0.1;
+    opacity: 0.08;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -87,7 +107,7 @@
     inset: 0;
     background-color: Canvas;
     /* clip-path: circle(0% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos)); */
-    clip-path: circle(5% at 50% 35%);
+    clip-path: circle(5% at 50% 38%);
     animation: theme-changing 0.5s var(--ease-sine-in);
   }
 }
@@ -96,6 +116,10 @@
   :where(.circle-button) {
     &:is(:hover) {
       outline: 2px solid GrayText;
+
+      .info {
+        scale: 1;
+      }
     }
 
     &:is(:focus-visible) {
@@ -108,6 +132,6 @@
 @keyframes theme-changing {
   to {
     /* clip-path: circle(150% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos)); */
-    clip-path: circle(100% at 50% 35%);
+    clip-path: circle(100% at 50% 38%);
   }
 }

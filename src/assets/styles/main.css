@@ -7,12 +7,10 @@
   overflow: hidden;
 
   .intro {
-    padding: var(--padding-x);
+    padding: 1rem var(--padding-x);
     display: grid;
     place-content: center;
     gap: 0.5rem;
-    /* padding-bottom: 4vh; */
-    /* transition: color 0.5s var(--ease-sine-in); */
 
     & h1 {
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
@@ -31,7 +29,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: var(--padding-y) var(--padding-x) 1rem;
+  padding: var(--padding-y) var(--padding-x) 0;
 }
 
 :where(.sunmoon) {

@@ -36,23 +36,26 @@
   );
 
   --gray-start: light-dark(
-    color-mix(in oklab, CanvasText, Canvas 60%),
+    color-mix(in oklab, CanvasText, Canvas 70%),
     color-mix(in oklab, CanvasText, Canvas 10%)
   );
   --gray-end: light-dark(
     color-mix(in oklab, CanvasText, Canvas 10%),
-    color-mix(in oklab, CanvasText, Canvas 50%)
+    color-mix(in oklab, CanvasText, Canvas 60%)
   );
 
   --accent-start: light-dark(
-    color-mix(in oklab, var(--accent-color), Canvas 30%),
-    color-mix(in oklab, var(--accent-color), CanvasText 30%)
+    color-mix(in oklab, var(--accent-color), Canvas 40%),
+    color-mix(in oklab, var(--accent-color), CanvasText 40%)
   );
   --accent-end: var(--accent-color);
 
   --link-start: light-dark(
     color-mix(in oklab, LinkText, Canvas 25%),
-    color-mix(in oklab, LinkText, CanvasText 25%)
+    color-mix(in oklab, LinkText, CanvasText 40%)
   );
-  --link-end: LinkText;
+  --link-end: light-dark(
+    color-mix(in oklab, LinkText, CanvasText 25%),
+    LinkText
+  );
 }

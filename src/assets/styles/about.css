@@ -1,6 +1,7 @@
 
 :where(.about-me) {
-  --padding: clamp(1.2rem, 2vw, 1.25rem);
+  /* --padding: clamp(1.2rem, 2vw, 1.25rem); */
+  --padding: 1.5rem;
   --button-bg: light-dark(
     oklch(from Highlight l c h / 0.3),
     oklch(from Highlight l c h / 0.1)
@@ -46,8 +47,8 @@
 
   .sign {
     position: absolute;
-    right: 2.25rem;
-    bottom: 2.25rem;
+    right: 2rem;
+    bottom: 2rem;
     color: color-mix(in oklab, CanvasText, Canvas 25%);
   }
 
@@ -119,7 +120,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
     border-radius: 100vh;
     border: 2px solid transparent;
 
@@ -128,8 +129,8 @@
     color: LinkText;
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
-    background-position: 0.8rem 79%;
-    background-size: calc(100% - 2.75rem) 1px;
+    background-position: 1rem 75%;
+    background-size: calc(100% - 3.1rem) 1px;
     border: 1px solid transparent;
     transition: background 0.3s var(--ease-sine-out);
     

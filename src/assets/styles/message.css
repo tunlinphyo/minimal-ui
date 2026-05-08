@@ -1,5 +1,5 @@
 :where(.message) {
-  width: min(95vw, 95vh, 44rem);
+  width: min(90vw, 95vh, 44rem);
   max-width: 60ch;
 
   /* @media (orientation: portrait) {
@@ -11,7 +11,7 @@
   } */
 
   .message-container {
-    padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 3vw, 3rem);
+    padding: clamp(2rem, 3vw, 4rem) clamp(1.5rem, 3vw, 3rem);
 
     display: grid;
     place-content: center;
@@ -45,7 +45,7 @@
     gap: 1rem;
 
     .avatar {
-      width: 50px;
+      width: 3.5rem;
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: clip;
@@ -73,6 +73,18 @@
           color-mix(in oklab, CanvasText, Canvas 25%)
         );
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .quoter {
+      flex-direction: column;
+      text-align: center;
+      order: -1;
+    }
+
+    & blockquote {
+      margin-bottom: 1rem;
     }
   }
 }

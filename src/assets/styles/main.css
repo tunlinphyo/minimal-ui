@@ -11,6 +11,7 @@
     display: grid;
     place-content: center;
     gap: 0.5rem;
+    padding-bottom: 2vh;
 
     & h1 {
       font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
@@ -21,6 +22,13 @@
       position: relative;
       z-index: 1;
     }
+
+    :where(ul) {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-block-start: 0.5rem;
+    }
   }
 }
 
@@ -30,6 +38,14 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--padding-y) var(--padding-x) 0;
+}
+
+:where(footer) {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: var(--padding-x);
+  padding-bottom: var(--padding-y);
 }
 
 :where(.sunmoon) {
@@ -72,6 +88,70 @@
 :where(body:has(sun-moon[theme=dark])) {
   .sunmoon::before {
     translate: -0.2rem 0.2rem;
+  }
+}
+
+:where(.icon-button) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 1rem;
+
+  height: 2.5rem;
+  border-radius: 100vh;
+  border: 1px solid oklch(from CanvasText l c h / 0.1);
+
+}
+
+:where(.icon-button:has(sun-moon)) {
+  position: relative;
+  padding-inline: 0.6rem 1rem;
+
+  & .theme-label {
+    pointer-events: none;
+    min-width: 2.5rem;
+  }
+
+  & sun-moon[theme="light"] ~ .theme-label-dark,
+  & sun-moon[theme="dark"] ~ .theme-label-light {
+    display: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: box-shadow 0.3s var(--ease-quart-in), opacity 0.3s var(--ease-quart-in);
+    /* transition-delay: 0.6s; */
+    box-shadow:
+      0 0 0 0 oklch(from var(--accent-color) l c h / 0.6),
+      0 0 0 0 oklch(from var(--accent-color) l c h / 0.4),
+      0 0 0 0 oklch(from var(--accent-color) l c h / 0.2)
+    ;
+  }
+}
+
+:where(a.icon-button) {
+  color: LinkText;
+  text-decoration: none;
+  gap: 0.5rem;
+  
+  &:is(:hover,:focus-visible) {
+    background-color: Canvas;
+    background-size: 0 1px;
+  }
+
+  &:is(:hover) {
+    /* color: LinkText; */
+    border: 1px solid LinkText;
   }
 }
 
@@ -162,6 +242,27 @@
       animation: AnimateOutline .2s ease;
     }
   }
+
+  .icon-button {
+    &:is(:focus-visible) {
+      border-color: var(--accent-color);
+      outline: 1px solid var(--accent-color);
+      outline-offset: 0px;
+    }
+  }
+
+  :where(.icon-button:has(sun-moon)) {
+    &:is(:hover)::before {
+      transition: box-shadow 0.3s var(--ease-quart-out), opacity 0.3s var(--ease-quart-out);
+      transition-delay: 0s;
+      box-shadow:
+        0 0 0 1.5rem oklch(from var(--accent-color) l c h / 0.6),
+        0 0 0 3rem oklch(from var(--accent-color) l c h / 0.4),
+        0 0 0 4.5rem oklch(from var(--accent-color) l c h / 0.2)
+      ;
+      opacity: 0.2;
+    }
+  }
 }
 
 html:has(.contact:popover-open) {
@@ -175,14 +276,6 @@ html:has(.contact:popover-open) {
       opacity: 0.5;
     }
   }
-}
-
-:where(footer) {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding: var(--padding-x);
-  padding-bottom: var(--padding-y);
 }
 
 :where(html:has(.contact:popover-open):has(.contact-button:is(:focus-visible))) {

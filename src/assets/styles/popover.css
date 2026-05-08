@@ -5,6 +5,11 @@
   /* background-color: Canvas; */
   background-image: linear-gradient(to bottom, var(--popover-bg), Canvas);
   background-origin: border-box;
+  
+  &:popover-open {
+    box-shadow: rgba(50, 50, 93, 0.12) 0px 25px 50px -10px, rgba(0, 0, 0, 0.15) 0px 15px 30px -15px;
+    transition: box-shadow 0s linear 0.6s;
+  }
 }
 
 :where(.contact) {
@@ -77,7 +82,7 @@
   }
 
   opacity: 0;
-  transform: scale(0.75) translate(0, -50vh);
+  transform: scale(0.5) translate(0, -25vh);
   will-change: transform;
 
   &:popover-open {

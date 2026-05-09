@@ -18,7 +18,7 @@
       line-height: 1;
     }
 
-    :where(h1, p) {
+    :where(h1, p, ul) {
       position: relative;
       z-index: 1;
     }

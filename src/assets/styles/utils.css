@@ -77,8 +77,9 @@
 :where(body) {
   background-color: Canvas;
   transition: background-color 0s linear 0.5s;
+  overflow: clip;
 
-  &::after {
+  /* &::after {
     content: '';
     position: fixed;
     z-index: 0;
@@ -94,7 +95,7 @@
     background-size: 100% auto;
     background-position: center;
     background-repeat: no-repeat;
-  }
+  } */
 }
 
 :where(sun-moon) {
@@ -107,9 +108,9 @@
     position: fixed;
     inset: 0;
     background-color: Canvas;
-    /* clip-path: circle(0% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos)); */
-    /* clip-path: circle(5% at 50% 38%); */
-    clip-path: circle(5% at 30% 55%);
+    clip-path: circle(0% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos));
+    clip-path: circle(5% at 50% 38%);
+    /* clip-path: circle(5% at 30% 55%); */
     animation: theme-changing 0.5s var(--ease-sine-in);
   }
 }
@@ -133,7 +134,8 @@
 
 @keyframes theme-changing {
   to {
-    /* clip-path: circle(150% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos)); */
-    clip-path: circle(100% at 30% 55%);
+    clip-path: circle(150% at calc(100% - var(--sunmoon-pos)) var(--sunmoon-pos));
+    /* clip-path: circle(100% at 30% 55%); */
+    clip-path: circle(100% at 50% 38%);
   }
 }

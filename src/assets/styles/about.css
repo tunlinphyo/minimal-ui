@@ -69,41 +69,47 @@
 }
 
 :where(.about-close) {
-  background-color: Canvas;
+  background-color: light-dark(Canvas, color-mix(in srgb, Canvas, CanvasText 50%));
   margin-inline: auto 0;
 
   position: absolute;
   top: var(--padding);
   right: var(--padding);
+  rotate: 45deg;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  mask:
+    linear-gradient(#000 0 0),
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Cpath d="M 7 0 L 13 0 L 13 7 L 20 7 L 20 13 L 13 13 L 13 20 L 7 20 L 7 13 L 0 13 L 0 7 L 7 7 Z" fill="%23000"/%3E%3C/svg%3E') center / 20px no-repeat;
+  mask-composite: exclude;
 
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 1.2rem;
-    height: 6px;
-    /* background-color: light-dark(
-      color-mix(in oklab, CanvasText, Canvas 35%),
-      color-mix(in oklab, CanvasText, Canvas 25%)
-    ); */
-    /* background-color: var(--popover-bg); */
-  }
-  &::before {
-    transform: rotate(45deg);
-    background-image: linear-gradient(90deg, var(--gray-start), var(--gray-end));
-  }
-  &::after {
-    transform: rotate(-45deg);
-    background-image: linear-gradient(-45deg, var(--gray-start), var(--gray-end));
-  }
+  -webkit-mask:
+    linear-gradient(#000 0 0),
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Cpath d="M 7 0 L 13 0 L 13 7 L 20 7 L 20 13 L 13 13 L 13 20 L 7 20 L 7 13 L 0 13 L 0 7 L 7 7 Z" fill="%23000"/%3E%3C/svg%3E') center / 20px no-repeat;
+  -webkit-mask-composite: xor;
 
   &:is(:focus-visible) {
     outline-offset: 2px;
     animation: AnimateOutline2 .2s ease;
+  }
+}
+
+@supports not (((mask: linear-gradient(#000 0 0)) and (mask-composite: exclude)) or ((-webkit-mask: linear-gradient(#000 0 0)) and (-webkit-mask-composite: xor))) {
+  :where(.about-close) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1.2rem;
+      height: 6px;
+      background-color: var(--popover-bg);
+    }
+    &::after {
+      transform: rotate(90deg);
+    }
   }
 }
 
@@ -133,7 +139,7 @@
     background-size: calc(100% - 3.1rem) 1px;
     border: 1px solid transparent;
     transition: background 0.3s var(--ease-sine-out);
-    
+
     &:is(:hover,:focus-visible) {
       color: LinkText;
       background-color: Canvas;

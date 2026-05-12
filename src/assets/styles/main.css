@@ -11,10 +11,10 @@
     display: grid;
     place-content: center;
     gap: 0.5rem;
-    padding-bottom: 2vh;
+    padding-bottom: 3vh;
 
     & h1 {
-      font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6rem);
+      font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6.5rem);
       line-height: 1;
     }
 
@@ -37,6 +37,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: var(--padding-y);
   padding: var(--padding-y) var(--padding-x) 0;
 }
 
@@ -91,70 +92,6 @@
   }
 }
 
-:where(.icon-button) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  padding-inline: 1rem;
-
-  height: 2.5rem;
-  border-radius: 100vh;
-  border: 1px solid oklch(from CanvasText l c h / 0.1);
-
-}
-
-:where(.icon-button:has(sun-moon)) {
-  position: relative;
-  padding-inline: 0.6rem 1rem;
-
-  & .theme-label {
-    pointer-events: none;
-    min-width: 2.5rem;
-  }
-
-  & sun-moon[theme="light"] ~ .theme-label-dark,
-  & sun-moon[theme="dark"] ~ .theme-label-light {
-    display: none;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 2.5rem;
-    aspect-ratio: 1;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    opacity: 0;
-    transition: box-shadow 0.3s var(--ease-quart-in), opacity 0.3s var(--ease-quart-in);
-    /* transition-delay: 0.6s; */
-    box-shadow:
-      0 0 0 0 oklch(from var(--accent-color) l c h / 0.6),
-      0 0 0 0 oklch(from var(--accent-color) l c h / 0.4),
-      0 0 0 0 oklch(from var(--accent-color) l c h / 0.2)
-    ;
-  }
-}
-
-:where(a.icon-button) {
-  color: LinkText;
-  text-decoration: none;
-  gap: 0.5rem;
-  
-  &:is(:hover,:focus-visible) {
-    background-color: Canvas;
-    background-size: 0 1px;
-  }
-
-  &:is(:hover) {
-    /* color: LinkText; */
-    border: 1px solid LinkText;
-  }
-}
-
 :where(.contact-button) {
   display: flex;
   flex-direction: column;
@@ -164,23 +101,30 @@
   gap: 2px;
   anchor-name: --contect-popover;
 
-  &::before {
-    content: '';
-    display: block;
-    width: 0.8rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-image: linear-gradient(160deg, var(--gray-start), var(--gray-end));
-    transition: all .3s var(--ease-sine-out);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  /* font-weight: 500; */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  word-spacing: -4px;
+  color: color-mix(in oklab, CanvasText, Canvas 35%);
+
+  border-radius: 5px;
+  @supports(corner-shape: squircle) {
+    border-radius: 15px;
+    corner-shape: squircle;
   }
-  &::after {
-    content: '';
-    display: block;
-    width: 1.5rem;
-    aspect-ratio: 2/1;
-    border-radius: 50%;
-    background-image: linear-gradient(135deg, var(--gray-start), var(--gray-end));
-    transition: all .3s var(--ease-out-3);
+
+  & span {
+    transition: all 0.2s var(--ease-sine-out);
+
+    /* @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      background-image: linear-gradient(175deg, var(--gray-start), var(--gray-end));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    } */
   }
 }
 
@@ -212,7 +156,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  /* :where(.contact-button) {
+  :where(.contact-button) {
     &:is(:hover) {
       outline: 2px solid GrayText;
       outline-offset: 2px;
@@ -223,7 +167,7 @@
       outline-offset: 2px;
       animation: AnimateOutline2 .2s ease;
     }
-  } */
+  }
 
   :where(.sunmoon) {
     &:is(:hover)::before {
@@ -267,13 +211,9 @@
 
 html:has(.contact:popover-open) {
   .contact-button {
-    &::before {
-      transform: translate(0, 6rem) scale(6);
-      opacity: 0.5;
-    }
-    &::after {
-      transform: translate(0, 2rem) scale(2,4);
-      opacity: 0.5;
+    span {
+      transform: translate(0, 2rem) scale(1.2);
+      opacity: 0;
     }
   }
 }

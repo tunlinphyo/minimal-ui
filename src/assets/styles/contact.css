@@ -32,6 +32,8 @@
 }
 
 :where(.contact-card) {
+  position: relative;
+  z-index: 1;
   padding: clamp(1.5rem, 2vw, 2rem);
   height: 24rem;
   display: flex;

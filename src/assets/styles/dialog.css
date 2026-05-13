@@ -26,6 +26,10 @@
     transition: opacity .5s ease;
   }
 
+  /* .arrow-container svg {
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+  } */
+
   &::backdrop {
     opacity: 0;
     /* background-color: transparent; */
@@ -46,6 +50,15 @@
         opacity: 0;
       }
     }
+
+    /* .arrow-container svg {
+      transition: clip-path .2s var(--ease-sine-out) 0.3s;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+      @starting-style {
+        clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+      }
+    } */
 
     .arrow-container {
       .draw-1 {
@@ -93,6 +106,11 @@
     &::backdrop, .heading, .testimonial-blob {
       opacity: 0;
     }
+
+    /* .arrow-container svg {
+      clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+      transition: clip-path .2s var(--ease-sine-out);
+    } */
 
     .arrow-container {
       .draw {

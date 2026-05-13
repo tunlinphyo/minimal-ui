@@ -14,7 +14,8 @@
     padding-bottom: 3vh;
 
     & h1 {
-      font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6.5rem);
+      /* font-size: clamp(2.2rem, min(10.5vw, 10.5vh), 6.5rem); */
+      font-size: clamp(2.2rem, min(10vw, 10vh), 5rem);
       line-height: 1;
     }
 

@@ -1,5 +1,5 @@
 
-:where(.about-me) {
+:where(about-me) {
   /* --padding: clamp(1.2rem, 2vw, 1.25rem); */
   --padding: 1.5rem;
   --button-bg: light-dark(
@@ -69,30 +69,17 @@
 }
 
 :where(.about-close) {
-  background-color: light-dark(Canvas, color-mix(in srgb, Canvas, CanvasText 50%));
+  color: light-dark(Canvas, color-mix(in srgb, Canvas, CanvasText 50%));
   margin-inline: auto 0;
 
   position: absolute;
   top: var(--padding);
   right: var(--padding);
+  padding: 0;
+  rotate: 45deg;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    width: 1.2rem;
-    height: 6px;
-    background-color: var(--popover-bg);
-  }
-  &::before {
-    transform: rotate(45deg);
-  }
-  &::after {
-    transform: rotate(-45deg);
+  & svg {
+    display: grid;
   }
 
   &:is(:focus-visible) {
@@ -152,7 +139,7 @@
   }
 } */
 
-:where(.about-me:not([inert])) {
+:where(about-me:not([inert])) {
   /* a:is(:hover,:focus-visible) {
     transition: all .6s var(--ease-spring-2);
   } */

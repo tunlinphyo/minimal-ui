@@ -1,5 +1,7 @@
 const lastFocusedTrigger = new WeakMap<HTMLElement, HTMLElement>()
 const processedEvents = new WeakSet<Event>()
+const listeningRoots = new WeakSet<Document | ShadowRoot>()
+let isAttachShadowPatched = false
 const FIRST_FOCUSABLE_SELECTOR = [
   'a[href]',
   'area[href]',
@@ -16,6 +18,8 @@ const FIRST_FOCUSABLE_SELECTOR = [
 
 export function togglePolyfill() {
   setupToggleListeners(document)
+  setupShadowRootListeners(document)
+  patchAttachShadow()
 }
 
 function handleToggleActivation(event: Event) {
@@ -61,8 +65,8 @@ function focusFirstFocusableElement(target: HTMLElement) {
   target.querySelector<HTMLElement>(FIRST_FOCUSABLE_SELECTOR)?.focus()
 }
 
-function getLinkedElements(id: string) {
-  return document.querySelectorAll<HTMLElement>(`[data-inert-${CSS.escape(id)}]`)
+function getLinkedElements(root: Document | ShadowRoot, id: string) {
+  return root.querySelectorAll<HTMLElement>(`[data-inert-${CSS.escape(id)}]`)
 }
 
 function syncInert(target: HTMLElement) {
@@ -70,13 +74,41 @@ function syncInert(target: HTMLElement) {
 
   if (!target.id) return
 
-  for (const linkedElement of getLinkedElements(target.id)) {
+  const root = target.getRootNode()
+  if (!(root instanceof Document || root instanceof ShadowRoot)) return
+
+  for (const linkedElement of getLinkedElements(root, target.id)) {
     linkedElement.toggleAttribute('inert', isOpen)
   }
 }
 
 function setupToggleListeners(target: Document | ShadowRoot) {
+  if (listeningRoots.has(target)) return
+
+  listeningRoots.add(target)
   target.addEventListener('command', handleToggleActivation, true)
+}
+
+function setupShadowRootListeners(root: Document | ShadowRoot) {
+  for (const element of root.querySelectorAll<HTMLElement>('*')) {
+    if (!element.shadowRoot) continue
+
+    setupToggleListeners(element.shadowRoot)
+    setupShadowRootListeners(element.shadowRoot)
+  }
+}
+
+function patchAttachShadow() {
+  if (isAttachShadowPatched) return
+
+  isAttachShadowPatched = true
+  const attachShadow = Element.prototype.attachShadow
+
+  Element.prototype.attachShadow = function attachShadowWithTogglePolyfill(init) {
+    const shadowRoot = attachShadow.call(this, init)
+    setupToggleListeners(shadowRoot)
+    return shadowRoot
+  }
 }
 
 declare global {
@@ -92,7 +124,7 @@ window.resetToggleInert = (id: string) => {
 
   target.setAttribute('inert', '')
 
-  for (const linkedElement of getLinkedElements(id)) {
+  for (const linkedElement of getLinkedElements(document, id)) {
     linkedElement.removeAttribute('inert')
   }
 }

@@ -92,12 +92,15 @@
       </footer>
     </main>
 
-    <about-tun id="contact" class="contact" popover role="region" aria-labelledby="about-me-title"></about-tun>
+    <about-contact id="contact" class="contact" popover role="region" aria-labelledby="about-me-title">
+      <contact-card slot="contact" data-inert-aboutme></contact-card>
+      <about-me slot="about" id="aboutme" toggle inert role="region" aria-labelledby="aboutme-title"></about-me>
+    </about-contact>
 
     <dialog id="testimonial" class="testimonials" aria-labelledby="testimonial-title">
       <button type="button" commandfor="testimonial" command="close" class="circle-button testimonial-close" aria-label="Close testimonials dialog"></button>
 
-      <what-people-say />
+      <what-people-say></what-people-say>
     </dialog>
 
     <script type="module" src="/src/main.ts"></script>

@@ -82,7 +82,7 @@ I also use CSS anchor positioning for smaller interaction details that would oth
 One example is the moving `.blob` background behind the contact links. The hovered or focused link, and the "Get to Know Me" button, expose an anchor name. The `.blob` element then uses `position-anchor` to snap itself to that target:
 
 ```css
-:where(.contact-card .contact-list a:is(:hover, :focus-visible)) {
+:where(contact-card .contact-list a:is(:hover, :focus-visible)) {
   anchor-name: --contact;
 }
 

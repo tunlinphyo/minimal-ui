@@ -1,37 +1,4 @@
-:where(.contact) {
-  --width: min(90vw, 21rem);
-  width: var(--width);
-  overflow: clip;
-
-  .tunlinphyo {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    & img {
-      display: grid;
-      width: auto;
-      height: 85%;
-      translate: 0 0.5rem;
-    }
-  }
-
-  .button-container {
-    anchor-name: --about;
-  }
-
-  &:popover-open {
-    .tunlinphyo {
-      animation: avatar-in 0.5s var(--ease-spring-1);
-    }
-  }
-}
-
-:where(.contact-card) {
+:where(contact-card) {
   position: relative;
   z-index: 1;
   padding: clamp(1.5rem, 2vw, 2rem);
@@ -185,7 +152,7 @@
 } */
 
 :where(.contact:popover-open) {
-  .about-me {
+  about-me {
     transition: all .25s var(--ease-sine-out), opacity 0.1s ease;
 
     &[inert] {
@@ -198,8 +165,8 @@
   }
 }
 
-:where(.contact:has(.about-me[inert])) {
-  .about-me {
+:where(.contact:has(about-me[inert])) {
+  about-me {
     .about-close,
     .sign {
       opacity: 0;
@@ -211,8 +178,8 @@
   }
 }
 
-:where(.contact:has(.about-me:not([inert]))) {
-  .about-me {
+:where(.contact:has(about-me:not([inert]))) {
+  about-me {
     .about-close {
       opacity: 1;
       transition: opacity 0.1s ease;
@@ -221,21 +188,5 @@
 
   .button-container {
     anchor-name: none;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .contact:popover-open {
-    &:focus-visible {
-      outline: 2px solid var(--accent-color);
-      outline-offset: 4px;
-      animation: AnimateOutline4 .2s ease;
-    }
-  }
-}
-
-@keyframes avatar-in {
-  from {
-    translate: 0 100%;
   }
 }

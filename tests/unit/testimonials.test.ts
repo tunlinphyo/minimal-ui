@@ -1,14 +1,20 @@
-/// <reference types="node" />
-
-import { readFileSync } from 'node:fs'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
+import '../../src/assets/elements/what-people-say'
 
 describe('testimonial people groups', () => {
-  const indexHtml = readFileSync('index.html', 'utf8')
-  const page = new DOMParser().parseFromString(indexHtml, 'text/html')
+  let element: HTMLElement
+
+  beforeEach(async () => {
+    document.body.innerHTML = '<what-people-say></what-people-say>'
+
+    element = document.querySelector('what-people-say') as HTMLElement & {
+      updateComplete?: Promise<unknown>
+    }
+    await element.updateComplete
+  })
 
   it('keeps each trigger popover target aligned with its matching popover and image', () => {
-    const groups = Array.from(page.querySelectorAll<HTMLElement>('.people-group'))
+    const groups = Array.from(element.querySelectorAll<HTMLElement>('.people-group'))
 
     expect(groups.length).toBeGreaterThan(0)
 
@@ -29,8 +35,8 @@ describe('testimonial people groups', () => {
   })
 
   it('matches --count to the number of people groups and keeps button --index values sequential', () => {
-    const center = page.querySelector<HTMLElement>('.people-center')
-    const groups = Array.from(page.querySelectorAll<HTMLElement>('.people-group'))
+    const center = element.querySelector<HTMLElement>('.people-center')
+    const groups = Array.from(element.querySelectorAll<HTMLElement>('.people-group'))
     const buttons = groups.map((group) => group.querySelector<HTMLButtonElement>('button.person'))
 
     expect(center).not.toBeNull()
@@ -44,7 +50,7 @@ describe('testimonial people groups', () => {
   })
 
   it('keeps each trigger name aligned with its matching popover title and quote attribution', () => {
-    const groups = Array.from(page.querySelectorAll<HTMLElement>('.people-group'))
+    const groups = Array.from(element.querySelectorAll<HTMLElement>('.people-group'))
 
     expect(groups.length).toBeGreaterThan(0)
 

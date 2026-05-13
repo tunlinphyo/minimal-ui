@@ -1,16 +1,18 @@
-/// <reference types="node" />
-
-import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
+import '../../src/assets/elements/about-tun'
 
 describe('contact links', () => {
-  it('uses the expected external destinations and security attributes', () => {
-    const indexHtml = readFileSync('index.html', 'utf8')
-    const page = new DOMParser().parseFromString(indexHtml, 'text/html')
+  it('uses the expected external destinations and security attributes', async () => {
+    document.body.innerHTML = '<about-tun id="contact"></about-tun>'
 
-    const githubLink = page.querySelector<HTMLAnchorElement>('[aria-label="Visit Tun\'s GitHub profile"]')
-    const linkedInLink = page.querySelector<HTMLAnchorElement>('[aria-label="Connect with Tun on LinkedIn"]')
-    const emailLink = page.querySelector<HTMLAnchorElement>('[aria-label="Send email to Tun"]')
+    const contact = document.querySelector('about-tun') as HTMLElement & {
+      updateComplete?: Promise<unknown>
+    }
+    await contact.updateComplete
+
+    const githubLink = contact.querySelector<HTMLAnchorElement>('[aria-label="Visit Tun\'s GitHub profile"]')
+    const linkedInLink = contact.querySelector<HTMLAnchorElement>('[aria-label="Connect with Tun on LinkedIn"]')
+    const emailLink = contact.querySelector<HTMLAnchorElement>('[aria-label="Send email to Tun"]')
 
     expect(githubLink).not.toBeNull()
     expect(githubLink?.getAttribute('href')).toBe('https://github.com/tunlinphyo')
